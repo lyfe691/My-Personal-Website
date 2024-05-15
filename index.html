@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome!</title>
+    <link rel="shortcut icon" href="images/engineer.png" type="image/x-icon">
+    <link rel="icon" href="images/engineer.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <!-- End #mobile-menu-toggle -->
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+    <!-- End header -->
+    
+    <div id="quotePopup" class="quote-popup"></div>
+
+    <div id="lead">
+        <div id="lead-content">
+            <h1>Yanis Sebastian Zürcher</h1>
+            <h2>Software Engineer</h2>
+            <a href="javascript:void(0);" onclick="randomQuote()" class="btn-rounded-white">Random Quote</a>
+        </div>
+        <!-- End #lead-content -->
+
+        <div id="lead-overlay"></div>
+
+        <div id="lead-down">
+            <span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+        </div>
+        <!-- End #lead-down -->
+    </div>
+    <!-- End #lead -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="heading">About Me</h2>
+                </div>
+                <div class="col-md-8">
+                    <p>Hello! I'm Yanis Sebastian Zürcher, a 16-year-old computer science enthusiast in my second semester at WISS School, diving into software engineering. Passionate about technology, I love coding, solving problems, and exploring various programming languages. At WISS, I'm honing my skills and preparing for a future in innovative projects. Explore my portfolio to see my work, and feel free to connect.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End #about -->
+
+    <div id="experience" class="background-alt">
+        <h2 class="heading">Experience</h2>
+        <div id="experience-timeline">
+            <div data-date="August 2023 – Now">
+                <h3><a href="https://www.wiss.ch/de-CH" target="_blank">WISS</a></h3>
+                <h4>Student - Computer Science</h4>
+                <p>I am currently a student at WISS, a Computer Science school, where I am immersed in a comprehensive computer science education. My studies cover a wide range of topics, including programming, systems analysis, database management, software development, and project management. This experience is providing me with a broad and solid foundation in the field of computer science, preparing me for a future in software engineering.</p>
+            </div>
+        </div>
+    </div>
+    <!-- End #experience -->
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">Projects</h2>
+        <div class="container">
+            <div class="row">
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/dalle_created.webp" height="300px" width="300px" alt="phishing-image">
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Phishing Website Tutorial</h3>
+                        <p>In this project, I created a tutorial for building a phishing website using Node.js, JavaScript, HTML, and CSS. The tutorial guides users through the process of setting up the website, implementing front-end designs, and handling back-end processes.</p>
+                        <a href="https://github.com/lyfe691/Phishing-Website-Tutorial" target="_blank">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/dalle_overthewire.webp" height="300px" width="300px" alt="overthewire-image">
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3><a href="https://overthewire.org/wargames/" target="_blank">OverTheWire</a> Bandit | Walkthrough/Guide</h3>
+                        <p>This project is a comprehensive walkthrough and guide for the OverTheWire Bandit wargame. It helps users navigate through each level, providing step-by-step solutions and explanations to enhance their understanding of Linux command line and security concepts.</p>
+                        <a href="https://github.com/lyfe691/OverTheWire-bandit" target="_blank">View Project</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+            </div>
+        </div>
+    </div>
+    <!-- End #projects -->
+
+    <div id="skills">
+        <h2 class="heading">Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>                 
+            <li>Java</li> 
+            <li>Bash</li>
+            <li>MySQL</li>
+            <li>Linux Server</li> 
+            <li>Windows Server</li>
+        </ul>
+    </div>
+    <!-- End #skills -->
+
+    <div id="contact">
+        <h2>Get in Touch</h2>
+        <div id="contact-form">
+            <form id="myForm" action="https://formspree.io/f/xeqydavz" method="POST">
+                <input type="hidden" name="_subject" value="Contact request from personal website" />
+                <input type="email" name="_replyto" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <!-- Checkbox for users to opt-in to receive a copy of their message -->
+                <div id="cc">
+                    <input type="checkbox" id="copy-checkbox" name="_cc" value="on">
+                    <label for="copy-checkbox">Send me a copy of this message</label>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <!-- End #contact-form -->
+        <div id="resultMessage"></div>
+        <!-- Message display div -->
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                    <p>Copyright &copy; <span id="current-year">2024</span> Yanis Sebastian Zürcher</p>
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+                </div>
+                <div class="col-sm-5 social">
+                    <ul>
+                        <li><a href="https://github.com/lyfe691" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li><a href="https://stackoverflow.com/users/23852835/yanis-sebastian-z%c3%bcrcher" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/yanis-sebastian-z%C3%BCrcher-740a36233/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <script src="js/quote-button.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+</body>
+
+</html>
