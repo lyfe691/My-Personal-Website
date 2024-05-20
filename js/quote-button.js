@@ -1,3 +1,6 @@
+let fadeTimeout;
+let hideTimeout;
+
 function randomQuote() {
     const quotes = [
         "The best way to predict the future is to invent it. – Alan Kay",
@@ -11,7 +14,6 @@ function randomQuote() {
         "Walking on water and developing software from a specification are easy if both are frozen. – Edward V. Berard",
         "It's not a bug – it's an undocumented feature. – Anonymous",
         "The function of good software is to make the complex appear to be simple. – Grady Booch",
-        "There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. – C.A.R. Hoare",
         "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler",
         "Make it work, make it right, make it fast. – Kent Beck",
         "Testing leads to failure, and failure leads to understanding. – Burt Rutan",
@@ -31,20 +33,24 @@ function randomQuote() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     const popup = document.getElementById('quotePopup');
     
+    // Clear existing timeouts
+    clearTimeout(fadeTimeout);
+    clearTimeout(hideTimeout);
+    
     // Update popup text and display it
     popup.textContent = randomQuote;
     popup.classList.add('show');
+    popup.classList.remove('fade');
 
-    // Start fade-out after 5.6 seconds
-    setTimeout(() => {
+    // Start fade-out after 5   seconds
+    fadeTimeout = setTimeout(() => {
         popup.classList.add('fade');
         
         // Remove classes after the fade-out transition is complete
-        setTimeout(() => {
+        hideTimeout = setTimeout(() => {
             popup.classList.remove('show', 'fade');
         }, 500); 
-    }, 5600); 
+    }, 5000); 
 }
-
 
 document.querySelector('.btn-rounded-white').addEventListener('click', randomQuote);
