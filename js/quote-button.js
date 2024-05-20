@@ -35,7 +35,7 @@ function randomQuote() {
     popup.textContent = randomQuote;
     popup.classList.add('show');
 
-    // Start fade-out after 3 seconds
+    // Start fade-out after 5.6 seconds
     setTimeout(() => {
         popup.classList.add('fade');
         
@@ -43,7 +43,7 @@ function randomQuote() {
         setTimeout(() => {
             popup.classList.remove('show', 'fade');
         }, 500); 
-    }, 3000); 
+    }, 5600); 
 }
 
 
