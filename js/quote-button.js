@@ -1,3 +1,8 @@
+/* temporary feature.
+/* Will get replaced with CV
+*/
+
+
 let fadeTimeout;
 let hideTimeout;
 
