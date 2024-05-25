@@ -2,6 +2,7 @@ let fadeTimeout;
 let hideTimeout;
 
 function randomQuote() {
+    // quotes
     const quotes = [
         "The best way to predict the future is to invent it. – Alan Kay",
         "Code is like humor. When you have to explain it, it's bad. – Cory House",
@@ -29,28 +30,28 @@ function randomQuote() {
         "Any code of your own that you haven’t looked at for six or more months might as well have been written by someone else. – Eagleson’s law"
     ];
 
-    // Select a random quote
+    // select random quote
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     const popup = document.getElementById('quotePopup');
     
-    // Clear existing timeouts
+    // reset timeouts
     clearTimeout(fadeTimeout);
     clearTimeout(hideTimeout);
     
-    // Update popup text and display it
+    // updaet thr poput and display it
     popup.textContent = randomQuote;
     popup.classList.add('show');
     popup.classList.remove('fade');
 
-    // Start fade-out after 5   seconds
+    // fadeout afrter 5sec
     fadeTimeout = setTimeout(() => {
         popup.classList.add('fade');
         
-        // Remove classes after the fade-out transition is complete
+        // remove classes after fadeout transition is complete
         hideTimeout = setTimeout(() => {
             popup.classList.remove('show', 'fade');
         }, 500); 
     }, 5000); 
 }
-
+// select
 document.querySelector('.btn-rounded-white').addEventListener('click', randomQuote);
