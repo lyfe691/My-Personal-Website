@@ -7,7 +7,7 @@ document.querySelector('#contact-form form').addEventListener('submit', function
     // Check if  "Send me a copy" checkbox is selected
     var sendCopy = document.getElementById('copy-checkbox').checked;
 
-    // If the checkbox is checked, send a copy to the submitter's email address
+    // if checkbox is sleected send amil to submiters email address
     if (sendCopy) {
         var submitterEmail = data.get('_replyto');
         var subject = 'Copy of your message from ' + window.location.hostname;
