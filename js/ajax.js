@@ -1,10 +1,10 @@
 document.querySelector('#contact-form form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Prevent the default form submission since i dont have a sub to formspree
 
     var form = event.target;
     var data = new FormData(form);
 
-    // Check if the "Send me a copy" checkbox is checked
+    // Check if  "Send me a copy" checkbox is selected
     var sendCopy = document.getElementById('copy-checkbox').checked;
 
     // If the checkbox is checked, send a copy to the submitter's email address
@@ -19,9 +19,9 @@ document.querySelector('#contact-form form').addEventListener('submit', function
         setTimeout(function() {
             // Submit the form to Formspree after the delay
             submitFormToFormspree(form, data);
-        }, 1000); // Adjust the delay as needed
+        }, 1000); // delay 1 sec
     } else {
-        // If the checkbox is not checked, submit the form to Formspree immediately
+        // if the checkbox is not checked submit to formspree instantly
         submitFormToFormspree(form, data);
     }
 });
@@ -31,12 +31,12 @@ function submitFormToFormspree(form, data) {
         method: form.method,
         body: data,
         headers: {
-            'Accept': 'application/json' // Ensures you're getting a JSON response
+            'Accept': 'application/json' // json response
         },
     })
     .then(response => {
         if (response.ok) {
-            return response.json(); // Proceed to interpret the JSON response
+            return response.json(); 
         } else {
             throw new Error('Server responded with a status: ' + response.status);
         }
@@ -45,7 +45,7 @@ function submitFormToFormspree(form, data) {
         var messageElement = document.getElementById('resultMessage');
         if (data.ok) {
             messageElement.innerText = 'Thank you for your message!';
-            messageElement.className = 'success show'; // Show message with success styling
+            messageElement.className = 'success show'; //  show success message
             form.reset(); // Reset the form fields to default
         } else {
             throw new Error('Form submission error: ' + (data.error ? data.error : 'Unknown error'));
@@ -54,18 +54,18 @@ function submitFormToFormspree(form, data) {
             messageElement.className += ' fade'; // Begin fade out
             setTimeout(function() {
                 messageElement.style.display = 'none'; // Hide after fade
-            }, 2500); // Wait for fade to finish
-        }, 5000); // 5 seconds delay before starting to fade out
+            }, 2500); 
+        }, 5000); // 5 sec delay
     })
     .catch(error => {
         var messageElement = document.getElementById('resultMessage');
         messageElement.innerText = error.message;
-        messageElement.className = 'error show'; // Show message with error styling
+        messageElement.className = 'error show'; // show error message
         setTimeout(function() {
             messageElement.className += ' fade';
             setTimeout(function() {
                 messageElement.style.display = 'none';
-            }, 2500);
-        }, 5000);
+            }, 2500); 
+        }, 5000); // 5 sec delay
     });
 }
