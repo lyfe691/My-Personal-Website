@@ -4,26 +4,8 @@ document.querySelector('#contact-form form').addEventListener('submit', function
     var form = event.target;
     var data = new FormData(form);
 
-    // Check if  "Send me a copy" checkbox is selected
-    var sendCopy = document.getElementById('copy-checkbox').checked;
-
-    // if checkbox is sleected send amil to submiters email address
-    if (sendCopy) {
-        var submitterEmail = data.get('_replyto');
-        var subject = 'Copy of your message from ' + window.location.hostname;
-        var body = 'Here is a copy of the message you submitted:\n\n' + data.get('message');
-        var mailtoLink = 'mailto:' + submitterEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-        window.location.href = mailtoLink;
-
-        // Wait for a short delay to allow the email client to open
-        setTimeout(function() {
-            // Submit the form to Formspree after the delay
-            submitFormToFormspree(form, data);
-        }, 1000); // delay 1 sec
-    } else {
-        // if the checkbox is not checked submit to formspree instantly
-        submitFormToFormspree(form, data);
-    }
+    // if the checkbox is not checked submit to formspree instantly
+    submitFormToFormspree(form, data);
 });
 
 function submitFormToFormspree(form, data) {
