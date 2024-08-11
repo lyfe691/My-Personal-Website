@@ -338,6 +338,12 @@ footer {
     animation: bounce 2s infinite;
 }
 
+/*------------------------ Alternative Background ------------------------*/
+
+.background-alt {
+    background: #f2f2f5;
+}
+
 /*------------------------ Keyframes for Animations ------------------------*/
 
 @keyframes fadeIn {
@@ -1048,6 +1054,9 @@ a .fa {
     position: static;
     display: inline;
 }
+ 
+
+
 
 .no-underline {
     text-decoration: none !important;
