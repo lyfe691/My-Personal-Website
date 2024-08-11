@@ -1,3 +1,5 @@
+/*------------------------ General Body Styling ------------------------*/
+
 body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
@@ -7,6 +9,8 @@ body.active {
     overflow: hidden;
     z-index: -1;
 }
+
+/*------------------------ Experience Timeline Styling ------------------------*/
 
 .no-js #experience-timeline > div {
     background: #fff;
@@ -41,6 +45,8 @@ body.active {
     content: none;
 }
 
+/*------------------------ Header Animation ------------------------*/
+
 @keyframes dropHeader {
     0% {
         transform: translateY(-100%);
@@ -49,6 +55,8 @@ body.active {
         transform: translateY(0);
     }
 }
+
+/*------------------------ Header Styling ------------------------*/
 
 header {
     position: absolute;
@@ -105,6 +113,8 @@ header.sticky {
     z-index: 999;
 }
 
+/*------------------------ Mobile Menu Styling ------------------------*/
+
 #menu.active {
     display: block;
 }
@@ -144,6 +154,8 @@ header.sticky {
     vertical-align: middle;
 }
 
+/*------------------------ Footer Styling ------------------------*/
+
 footer {
     padding: 50px 0;
 }
@@ -156,6 +168,8 @@ footer {
     margin: 0;
     color: #74808a;
 }
+
+/*------------------------ Scroll to Top Button ------------------------*/
 
 .top {
     text-align: center;
@@ -175,6 +189,8 @@ footer {
 .top i {
     color: #74808a;
 }
+
+/*------------------------ Social Icons Styling ------------------------*/
 
 .social {
     text-align: right;
@@ -201,6 +217,8 @@ footer {
     color: #4e538d;
 }
 
+/*------------------------ Button Styling ------------------------*/
+
 .btn-rounded-white {
     display: inline-block;
     color: #fff;
@@ -216,6 +234,8 @@ footer {
     text-decoration: none;
 }
 
+/*------------------------ Shadow Styling ------------------------*/
+
 .shadow {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -223,6 +243,8 @@ footer {
 .shadow-large {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
+
+/*------------------------ Heading Styling ------------------------*/
 
 .heading {
     position: relative;
@@ -244,16 +266,20 @@ footer {
     background: #3498db;
 }
 
+/*------------------------ Alternative Background ------------------------*/
+
 .background-alt {
     background: #f2f2f5;
 }
+
+/*------------------------ Lead Section Styling ------------------------*/
 
 #lead {
     position: relative;
     height: 100vh;
     min-height: 500px;
     max-height: 1080px;
-    background: url(../images/picture-01-4.webp); /* change backgroung image from header */
+    background: url(../images/picture-01-4.webp);
     background-size: cover;
     padding: 15px;
     overflow: hidden;
@@ -329,6 +355,8 @@ footer {
     padding-top: 5px;
 }
 
+/*------------------------ Keyframes for Pulsate Animation ------------------------*/
+
 @keyframes pulsate {
     0% {
         transform: scale(1, 1);
@@ -340,6 +368,8 @@ footer {
         transform: scale(1, 1);
     }
 }
+
+/*------------------------ About Section Styling ------------------------*/
 
 #about {
     padding: 75px 15px;
@@ -354,6 +384,8 @@ footer {
     color: #74808a;
     margin: 0;
 }
+
+/*------------------------ Experience Section Styling ------------------------*/
 
 #experience {
     padding: 50px 15px;
@@ -459,6 +491,8 @@ footer {
     color: #374054;
 }
 
+/*------------------------ Education Section Styling ------------------------*/
+
 #education {
     padding: 50px 15px 20px 15px;
     border-bottom: 1px solid #dcd9d9;
@@ -508,6 +542,8 @@ footer {
 .education-block ul {
     padding: 0 0 0 15px;
 }
+
+/*------------------------ Projects Section Styling ------------------------*/
 
 #projects {
     padding: 50px 15px;
@@ -565,6 +601,8 @@ footer {
     display: none;
 }
 
+/*------------------------ Skills Section Styling ------------------------*/
+
 #skills {
     padding: 50px 15px;
     text-align: center;
@@ -594,131 +632,185 @@ footer {
     border-radius: 3.75px;
 }
 
+/*------------------------ Contact Section Styling ------------------------*/
+
 #contact {
-    padding: 50px 15px;
-    background: #6a6a6b;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #9fa3b3, #7c7474, #7e7878);
     text-align: center;
+    color: #fff;
 }
 
 #contact h2 {
-    margin: 0 0 15px 0;
-    color: #fff;
-    font-weight: 500;
+    margin: 0 0 40px 0;
+    font-weight: 300;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
+/*------------------------ Contact Form Styling ------------------------*/
+
 #contact-form {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 #contact-form input,
 #contact-form textarea {
     display: block;
     width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-    margin-bottom: 10px;
-    background: #393a3ba2;
+    padding: 18px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    transition: .5s ease all;
-}
-
-#contact-form textarea {
-    margin-bottom: 13.2px;
-}
-
-#contact-form input::-webkit-input-placeholder,
-#contact-form textarea::-webkit-input-placeholder {
-    color: #fff;
-}
-
-#contact-form input:-moz-placeholder,
-#contact-form textarea:-moz-placeholder {
-    color: #fff;
-    opacity: 1;
-}
-
-#contact-form input::-moz-placeholder,
-#contact-form textarea::-moz-placeholder {
-    color: #fff;
-    opacity: 1;
-}
-
-#contact-form input:-ms-input-placeholder,
-#contact-form textarea:-ms-input-placeholder {
-    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 #contact-form input:focus,
 #contact-form textarea:focus {
     outline: none;
-    background: #657179;
+    border-color: #fef0f0;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(217, 215, 211, 0.5);
 }
 
 #contact-form textarea {
-    height: 150px;
-    resize: none;
+    height: 180px;
+    resize: vertical;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 #contact-form button {
-    display: block;
-    width: 100%;
-    background: #ffffffa9;
-    border-radius: 4px;
-    padding: 5px 10px;
+    display: inline-block;
+    background: #6155558c;
+    color: #f1f2f7;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px 40px;
     border: none;
-    color: #34393d;
-    font-weight: 700;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: .5s ease all;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 #contact-form button:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    background: #444a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-.optional-section {
-    padding: 50px 15px;
-    text-align: center;
-    border-top: 1px solid #dcd9d9;
-}
+/*------------------------ File Upload Styling ------------------------*/
 
-.optional-section h2 {
-    color: #374054;
-}
-
-.optional-section-block {
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-    padding: 15px;
-    border: 1px solid #dcd9d9;
-    background: #fff;
+.file-upload {
+    position: relative;
+    margin-bottom: 25px;
     text-align: left;
 }
 
-.optional-section-block h3 {
-    font-weight: 500;
-    margin: 0 0 15px 0;
-    color: #374054;
+.file-input {
+    position: absolute;
+    left: -9999px;
 }
 
-.optional-section-block h4 {
-    color: #74808a;
-    clear: both;
-    font-weight: 500;
-    margin: 0 0 15px 0;
+.file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.optional-section-block p,
-.optional-section-block ul {
-    margin: 0 0 15px 0;
-    color: #74808a;
-    font-size: 0.9em;
+.file-label:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.optional-section-block ul {
-    padding: 0 0 0 15px;
+.file-label i {
+    margin-right: 10px;
+}
+
+.file-name {
+    margin-left: 15px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/*------------------------ Result Message Styling ------------------------*/
+
+#resultMessage.success {
+    background-color: rgba(62, 63, 62, 0.9);
+    color: #fff;
+}
+
+#resultMessage.error {
+    background-color: rgb(142, 23, 10);
+    color: #fff;
+}
+
+#resultMessage {
+    display: none;
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #4f524f;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+#resultMessage.show {
+    display: block;
+    opacity: 1;
+}
+
+#resultMessage.fade {
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out;
+}
+
+.success {
+    background-color: #5b97be;
+}
+
+.error {
+    background-color: #dc3545;
+}
+
+/*------------------------ Media Queries ------------------------*/
+
+@media only screen and (max-width: 768px) {
+    #contact-form {
+        padding: 30px;
+        margin: 13px;
+    }
+    
+    #contact h2 {
+        font-size: 2.5em;
+    }
 }
 
 @media only screen and (max-width: 750px) {
@@ -726,6 +818,7 @@ footer {
     #experience-timeline:after {
         left: 23px;
     }
+    
     .vtimeline-date {
         width: auto;
         text-align: left;
@@ -734,9 +827,11 @@ footer {
         display: block;
         margin-left: 70px;
     }
+    
     .vtimeline-icon {
         margin-left: 0;
     }
+    
     .vtimeline-content {
         margin-left: 70px;
     }
@@ -749,21 +844,26 @@ footer {
         max-height: auto;
         padding: 100px 15px;
     }
+    
     #lead-content {
         position: relative;
         transform: none;
         left: auto;
         top: auto;
     }
+    
     #lead-content h1 {
         font-size: 3em;
     }
+    
     #lead-content h2 {
         font-size: 1.75em;
     }
+    
     #about {
         text-align: center;
     }
+    
     #about p {
         text-align: left;
     }
@@ -778,10 +878,12 @@ footer {
         bottom: 0;
         height: 100%;
     }
+    
     #mobile-menu-open,
     #mobile-menu-close {
         display: block;
     }
+    
     #menu {
         height: 100%;
         overflow-y: auto;
@@ -789,29 +891,37 @@ footer {
         border-radius: 0;
         width: 100%;
     }
+    
     #menu li {
         display: block;
         margin-bottom: 10px;
     }
+    
     #lead-content h1 {
         font-size: 2em;
     }
+    
     #lead-content h2 {
         font-size: 1.3em;
     }
+    
     #lead-content a {
         padding: 10px 20px;
     }
+    
     #lead-down {
         display: none;
     }
+    
     .education-block h3,
     .education-block span {
         float: none;
     }
+    
     .project-image {
         display: none;
     }
+    
     .project-info {
         position: relative;
         margin: 0;
@@ -819,9 +929,11 @@ footer {
         top: auto;
         transform: none;
     }
+    
     footer {
         text-align: center;
     }
+    
     .social {
         text-align: center;
     }
@@ -831,58 +943,19 @@ footer {
     #lead-content h1 {
         font-size: 1.5em;
     }
+    
     #lead-content h2 {
         font-size: 1em;
     }
+    
     #lead-content a {
         font-size: 0.9em;
         padding: 5px 10px;
     }
 }
 
-/* Result message after form submit */
-#resultMessage {
-    display: none; /* Hidden by default */
-    position: fixed; /* Positioned relative to the viewport */
-    left: 50%; /* Center horizontally */
-    bottom: 20px; /* Positioned at the bottom of the viewport */
-    transform: translateX(-50%); /* Center-align the div */
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #4f524f;
-    text-align: center;
-    border-radius: 5px;
-    opacity: 0; /* Start fully transparent */
-    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
-    z-index: 1000; /* High z-index to ensure visibility */
-}
+/*------------------------ General Link Styling ------------------------*/
 
-#resultMessage.show {
-    display: block;
-    opacity: 1; /* Fully visible when showing */
-}
-
-#resultMessage.fade {
-    opacity: 0; /* Fade out to transparent */
-    transition: opacity 2.5s ease-in-out; /* Slower transition for fade out */
-}
-
-.success {
-    background-color: #5b97be; /* A nicer shade of green */
-}
-
-.error {
-    background-color: #dc3545; /* A more intense red */
-}
-
-@media (max-width: 600px) {
-    #resultMessage {
-        font-size: 14px; /* Smaller font for smaller devices */
-        padding: 10px;
-    }
-}
-
-/* General link styling */
 a {
     color: #4b7eb4;
     text-decoration: none !important;
@@ -914,7 +987,8 @@ a:hover::after {
     transform-origin: bottom left;
 }
 
-/* Remove underline from links in list items */
+/*------------------------ Specific Link Stylings ------------------------*/
+
 ul li a {
     text-decoration: none !important;
 }
@@ -923,7 +997,6 @@ ul li a::after {
     content: none;
 }
 
-/* Link styling within project info */
 .project-info a {
     color: #718f79;
 }
@@ -936,7 +1009,6 @@ ul li a::after {
     color: #718f7989;
 }
 
-/* Exclude Font Awesome Icons from link styling */
 a .fa {
     color: inherit;
     text-shadow: none;
@@ -945,7 +1017,6 @@ a .fa {
     display: inline;
 }
 
-/* Remove underline from the specific OverTheWire link */
 .no-underline {
     text-decoration: none !important;
 }
@@ -954,3 +1025,4 @@ a .fa {
     content: none;
     text-decoration: none !important;
 }
+
