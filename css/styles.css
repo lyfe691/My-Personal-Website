@@ -217,22 +217,6 @@ footer {
     color: #4e538d;
 }
 
-/*------------------------ Button Styling ------------------------*/
-
-.btn-rounded-white {
-    display: inline-block;
-    color: #fff;
-    padding: 15px 25px;
-    border: 3px solid #fff;
-    border-radius: 30px;
-    transition: .5s ease all;
-}
-
-.btn-rounded-white:hover {
-    color: #3498db;
-    background: #fff;
-    text-decoration: none;
-}
 
 /*------------------------ Shadow Styling ------------------------*/
 
@@ -266,22 +250,15 @@ footer {
     background: #3498db;
 }
 
-/*------------------------ Alternative Background ------------------------*/
-
-.background-alt {
-    background: #f2f2f5;
-}
-
 /*------------------------ Lead Section Styling ------------------------*/
 
 #lead {
     position: relative;
     height: 100vh;
-    min-height: 500px;
+    min-height: 600px;
     max-height: 1080px;
-    background: url(../images/picture-01-4.webp);
+    background: url(../images/picture-01-4.webp) no-repeat center center;
     background-size: cover;
-    padding: 15px;
     overflow: hidden;
 }
 
@@ -292,27 +269,29 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
-
-#lead-content h1,
-#lead-content h2 {
-    margin: 0;
+    width: 100%;
+    padding: 0 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 #lead-content h1 {
     color: #fff;
     font-weight: 900;
-    font-size: 5em;
+    font-size: clamp(3em, 8vw, 5em);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    line-height: 0.9em;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #lead-content h2 {
     color: #bdd4e4;
     font-weight: 500;
-    font-size: 2.25em;
-    margin-bottom: 15px;
+    font-size: clamp(1.5em, 4vw, 2.25em);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #lead-overlay {
@@ -320,52 +299,65 @@ footer {
     height: 100%;
     width: 100%;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    background: rgba(60, 58, 61, 0.8);
+    background: linear-gradient(135deg, rgba(60, 58, 61, 0.8), rgba(28, 27, 29, 0.8));
     z-index: 1;
 }
 
 #lead-down {
     position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
-    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
     color: #fff;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
 }
 
 #lead-down span {
     cursor: pointer;
     display: block;
-    margin: 0 auto;
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 3px solid #a0cfee;
+    background: rgba(255, 255, 255, 0.1);
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+#lead-down span:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
 }
 
 #lead-down i {
-    animation: pulsate 1.5s ease;
-    animation-iteration-count: infinite;
-    padding-top: 5px;
+    font-size: 1.5em;
+    line-height: 44px;
+    animation: bounce 2s infinite;
 }
 
-/*------------------------ Keyframes for Pulsate Animation ------------------------*/
+/*------------------------ Keyframes for Animations ------------------------*/
 
-@keyframes pulsate {
-    0% {
-        transform: scale(1, 1);
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #lead-content h1 {
+        font-size: clamp(2.5em, 10vw, 4em);
     }
-    50% {
-        transform: scale(1.2, 1.2);
-    }
-    100% {
-        transform: scale(1, 1);
+    #lead-content h2 {
+        font-size: clamp(1.2em, 5vw, 1.8em);
     }
 }
 
@@ -693,12 +685,12 @@ footer {
 
 #contact-form input::placeholder,
 #contact-form textarea::placeholder {
-    color: rgba(51, 51, 51, 0.7); /* Darker placeholder for better visibility */
+    color: rgba(51, 51, 51, 0.7); 
 }
 
 #contact-form button {
     display: inline-block;
-    background: #374054; 
+    background: linear-gradient(135deg, #6d83f3, #374054); 
     color: #fff; 
     font-size: 18px;
     font-weight: 600;
@@ -710,13 +702,50 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 #contact-form button:hover {
-    background: #444a4a;
+    background: linear-gradient(135deg, #566dc7, #2f3747);
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+
+#contact-form button.loading {
+    color: transparent;
+    pointer-events: none; 
+}
+
+#contact-form button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.5em;
+    height: 0.5em;
+    margin-left: -1em;
+    border-radius: 50%;
+    background: #fff;
+    animation: loadingDots 1s infinite linear;
+    box-shadow: 1em 0 0 0 #fff, 2em 0 0 0 #fff;
+}
+
+@keyframes loadingDots {
+    0% {
+        box-shadow: 1em 0 0 0 #fff, 2em 0 0 0 #fff;
+    }
+    33% {
+        box-shadow: 1em 0 0 0 #374054, 2em 0 0 0 #fff;
+    }
+    66% {
+        box-shadow: 1em 0 0 0 #374054, 2em 0 0 0 #374054;
+    }
+    100% {
+        box-shadow: 1em 0 0 0 #fff, 2em 0 0 0 #374054;
+    }
+}
+
 
 /*------------------------ File Upload Styling ------------------------*/
 
@@ -753,7 +782,7 @@ footer {
 .file-name {
     margin-left: 15px;
     font-style: italic;
-    color: #333;
+    color: #333333ae;
 }
 
 

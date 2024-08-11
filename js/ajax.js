@@ -1,7 +1,5 @@
-// Free Alternative to FormSpree file uploads, it'll show the cloudiary link in the form submission so i can just download it.
-// This is only needed because i dont want to purchase a subscription to uload files.
-
-
+// Free Alternative to FormSpree file uploads, it'll show the cloudinary link in the form submission so I can just download it.
+// This is only needed because I don't want to purchase a subscription to upload files.
 
 /*------------------------ Free Alternative to FormSpree File Uploads ------------------------
     This script uploads the selected file to Cloudinary and includes the file URL in the form submission
@@ -12,13 +10,17 @@ document.querySelector('#myForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
     var form = event.target;
+    var submitButton = form.querySelector('button[type="submit"]');
     var fileInput = document.getElementById('file-input');
     var file = fileInput.files[0];
+
+    // Add loading class to the button
+    submitButton.classList.add('loading');
 
     if (file) {
         var formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', 'unsigned_upload'); // Replace with your actual unsigned upload preset
+        formData.append('upload_preset', 'unsigned_upload'); 
 
         // Upload the file to Cloudinary
         fetch('https://api.cloudinary.com/v1_1/dfgoxrimk/upload', {
@@ -35,6 +37,8 @@ document.querySelector('#myForm').addEventListener('submit', function(event) {
         .catch(error => {
             console.error('Error uploading file:', error);
             alert('Failed to upload the file.');
+            // Remove loading class in case of an error
+            submitButton.classList.remove('loading');
         });
     } else {
         // No file selected, just submit the form directly
@@ -102,6 +106,10 @@ function submitFormToFormspree(form) {
                 messageElement.style.display = 'none';
             }, 2500); 
         }, 5000);
+    })
+    .finally(() => {
+        // Remove loading class after form submission
+        var submitButton = form.querySelector('button[type="submit"]');
+        submitButton.classList.remove('loading');
     });
 }
-
