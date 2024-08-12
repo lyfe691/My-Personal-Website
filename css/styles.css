@@ -936,11 +936,11 @@ footer {
     }
     
     #lead-content h1 {
-        font-size: 2em;
+        font-size: 1.7em;
     }
     
     #lead-content h2 {
-        font-size: 1.3em;
+        font-size: 1.1em;
     }
     
     #lead-content a {
@@ -979,11 +979,11 @@ footer {
 
 @media only screen and (max-width: 480px) {
     #lead-content h1 {
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
     
     #lead-content h2 {
-        font-size: 1em;
+        font-size: 0.8em;
     }
     
     #lead-content a {
