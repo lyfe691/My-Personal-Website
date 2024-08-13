@@ -10,6 +10,16 @@ body.active {
     z-index: -1;
 }
 
+
+/*------------------------ custom cursor ------------------------*/
+body {
+    cursor: url('../assets/icons8-cursor-19.png'), auto;
+}
+
+a, button,#mobile-menu-open,#mobile-menu-close, .file-label,[role="button"], input[type="button"], input[type="submit"],button[type="submit"] .fa, #lead-down, #to-top {
+    cursor: url('../assets/icons8-cursor.svg'), pointer;
+}
+
 /*------------------------ Experience Timeline Styling ------------------------*/
 
 .no-js #experience-timeline > div {
@@ -121,7 +131,6 @@ header.sticky {
 
 #mobile-menu-open {
     display: none;
-    cursor: pointer;
     position: fixed;
     right: 15px;
     top: 10px;
@@ -141,7 +150,6 @@ header.sticky {
     font-size: 1.5em;
     padding-right: 15px;
     padding-top: 10px;
-    cursor: pointer;
     color: #3b3b3b;
 }
 
@@ -176,7 +184,6 @@ footer {
 }
 
 .top span {
-    cursor: pointer;
     display: block;
     margin: 15px auto 0 auto;
     width: 35px;
@@ -316,7 +323,6 @@ footer {
 }
 
 #lead-down span {
-    cursor: pointer;
     display: block;
     width: 50px;
     height: 50px;
@@ -625,7 +631,6 @@ footer {
     color: #374054;
     background: #e4e4ea;
     list-style: none;
-    cursor: default;
     font-size: 1.2em;
     border-radius: 3.75px;
 }
@@ -703,7 +708,6 @@ footer {
     padding: 18px 40px;
     border: none;
     border-radius: 50px;
-    cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -773,7 +777,6 @@ footer {
     color: #fff; 
     border: 2px solid rgba(0, 0, 0, 0.1); 
     border-radius: 8px;
-    cursor: pointer;
     transition: all 0.3s ease;
 }
 
