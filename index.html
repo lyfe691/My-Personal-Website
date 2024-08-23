@@ -26,6 +26,17 @@
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <style>
+        /* override custom cursor*/
+        body {
+            cursor:auto;
+        }
+
+        a, button,#mobile-menu-open,#mobile-menu-close, .file-label, #remove-file:hover,[role="button"], input[type="button"], input[type="submit"],button[type="submit"] .fa, #lead-down, #to-top {
+            cursor:pointer;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -98,58 +109,82 @@
     <!-- End #experience -->
 
     <!-- Projects Section -->
+
     <div id="projects" class="background-alt">
         <h2 class="heading">Projects</h2>
         <div class="container">
             <div class="row">
+                
+                <!-- Project: Code Extractor -->
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/Website_code_extractor.webp" height="300px" width="300px" alt="code-extractor-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Website Code Extractor 📤</h3>
+                        <p>A simple Chrome extension that extracts HTML, CSS, JavaScript, and images from websites and packages them into a zip file with JSzip. Ideal for smaller sites, it allows quick access to web code, though it may struggle with larger sites that rely heavily on server-side code.</p>
+                        <a href="https://chromewebstore.google.com/detail/website-code-extractor/foppgeakfpkdghmmmflmblcidoofpohm" target="_blank">Get Extension</a>
+                    </div>
+                </div>
+                <!-- End Project: Code Extractor -->
+                
                 <!-- Project: LyfeAI -->
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/lyfeAI.png" height="300px" width="300px" alt="lyfeAI-image">
                     </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
                         <h3>LyfeAI 🍃</h3>
                         <p>LyfeAI is an AI-powered assistant offering features like user authentication, AI chat via the OpenAI API, dark mode toggle, profile management, password reset functionality, and more. The project is built with React.js for the frontend and Spring Boot with Hibernate and JWT for the backend, utilizing MySQL for data storage.</p>
-                        <a href="https://github.com/lyfe691/LyfeAI"  target="_blank">View Project</a>
+                        <a href="https://github.com/lyfe691/LyfeAI" target="_blank">View Project</a>
                     </div>
-                    <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
- 
+                <!-- End Project: LyfeAI -->
+
+                <!-- Project: Virtual Machine Detector -->
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img src="images/vm_detector.webp" height="300px" width="300px" alt="lyfeAI-image">
+                    </div>
+                    <div class="project-info">
+                        <h3>Virtual Machine Detector 🔎</h3>
+                        <p>A simple and effective VM Detector made with Java, using object-oriented design. This tool quickly identifies virtual machines across various environments. It's easy to use and perfect for anyone who needs a straightforward way to detect VM's.</p>
+                        <a href="https://github.com/lyfe691/Virtual-Machine-Detector" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <!-- End Project: Virtual Machine Detector -->
+    
                 <!-- Project: Phishing Website Tutorial -->
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/dalle_created.webp" height="300px" width="300px" alt="phishing-image">
                     </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>Phishing Website Tutorial</h3>
+                        <h3>Phishing Website Tutorial 🕵 </h3>
                         <p>In this project, I created a tutorial for building a phishing website using Node.js, JavaScript, HTML, and CSS. The tutorial guides users through the process of setting up the website, implementing front-end designs, and handling back-end processes.</p>
                         <a href="https://github.com/lyfe691/Phishing-Website-Tutorial" target="_blank">View Project</a>
                     </div>
-                    <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
+                <!-- End Project: Phishing Website Tutorial -->
 
                 <!-- Project: OverTheWire Bandit Walkthrough -->
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/dalle_overthewire.webp" height="300px" width="300px" alt="overthewire-image">
                     </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
-                        <h3>OverTheWire Bandit | Walkthrough/Guide</h3>
+                        <h3>OverTheWire Bandit | Walkthrough/Guide 🔐</h3>
                         <p>This project is a comprehensive walkthrough and guide for the <a href="https://overthewire.org/wargames/" class="no-underline" target="_blank">OverTheWire</a> Bandit wargame. It helps users navigate through each level, providing step-by-step solutions and explanations to enhance their understanding of Linux command line and security concepts.</p>
                         <a href="https://github.com/lyfe691/OverTheWire-bandit" target="_blank">View Project</a>
                     </div>
-                    <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
+                <!-- End Project: OverTheWire Bandit Walkthrough -->
+
             </div>
         </div>
     </div>
-    <!-- End #projects -->
+    
+    <!-- End Projects -->
 
     <!-- Skills Section -->
     <div id="skills">
