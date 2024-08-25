@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #ff3131;
+    --secondary-color: #2196f3;
+    --background-color: #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.error-text {
+    font-size: clamp(60px, 15vw, 120px);
+    font-family: 'Monoton', cursive;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+#error {
+    color: var(--secondary-color);
+    text-shadow: 0 0 20px var(--secondary-color);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+#code {
+    color: var(--primary-color);
+    text-shadow: 0 0 20px var(--primary-color);
+    animation: glow 1.5s ease-in-out infinite alternate 0.5s;
+}
+
+.home-link {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.home-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+.home-link:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px var(--secondary-color);
+}
+
+.home-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px currentColor, 0 0 35px currentColor, 0 0 40px currentColor, 0 0 50px currentColor, 0 0 75px currentColor;
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px currentColor, 0 0 70px currentColor, 0 0 80px currentColor, 0 0 100px currentColor, 0 0 150px currentColor;
+    }
+}
+
