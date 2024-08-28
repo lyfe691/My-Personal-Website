@@ -23,6 +23,7 @@
     
     <!-- Fonts and Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -109,13 +110,11 @@
     <!-- End #experience -->
 
     <!-- Projects Section -->
-
     <div id="projects" class="background-alt">
         <h2 class="heading">Projects</h2>
         <div class="container">
             <div class="row">
-                
-                <!-- Project: Code Extractor -->
+                <!-- Project 1: Code Extractor -->
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/Website_code_extractor.webp" height="300px" width="300px" alt="code-extractor-image">
@@ -126,9 +125,9 @@
                         <a href="https://chromewebstore.google.com/detail/website-code-extractor/foppgeakfpkdghmmmflmblcidoofpohm" target="_blank">Get Extension</a>
                     </div>
                 </div>
-                <!-- End Project: Code Extractor -->
-                
-                <!-- Project: LyfeAI -->
+                <!-- End Project 1 -->
+
+                <!-- Project 2: LyfeAI -->
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/lyfeAI.png" height="300px" width="300px" alt="lyfeAI-image">
@@ -139,67 +138,113 @@
                         <a href="https://github.com/lyfe691/LyfeAI" target="_blank">View Project</a>
                     </div>
                 </div>
-                <!-- End Project: LyfeAI -->
+                <!-- End Project 2 -->
 
-                <!-- Project: Virtual Machine Detector -->
+                <!-- Project 3: Redis & Spring Boot view counter  -->
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="images/vm_detector.webp" height="300px" width="300px" alt="lyfeAI-image">
+                        <img src="images/view_counter.webp" height="300px" width="300px" alt="view counter image">
                     </div>
                     <div class="project-info">
-                        <h3>Virtual Machine Detector 🔎</h3>
-                        <p>A simple and effective VM Detector made with Java, using object-oriented design. This tool quickly identifies virtual machines across various environments. It's easy to use and perfect for anyone who needs a straightforward way to detect VM's.</p>
-                        <a href="https://github.com/lyfe691/Virtual-Machine-Detector" target="_blank">View Project</a>
+                        <h3>View Counter 🔢</h3>
+                        <p>>This is a simple web application built with Java, Spring Boot, and Redis. The application increments a counter every time the home page is visited and displays the current visitor count. To optimize performance and ensure quick access, the visitor count data is cached in the Redis database.</p>
+                        <a href="https://github.com/lyfe691/View_Counter" target="_blank">View Project</a>
                     </div>
                 </div>
-                <!-- End Project: Virtual Machine Detector -->
-    
-                <!-- Project: Phishing Website Tutorial -->
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/dalle_created.webp" height="300px" width="300px" alt="phishing-image">
-                    </div>
-                    <div class="project-info">
-                        <h3>Phishing Website Tutorial 🕵 </h3>
-                        <p>In this project, I created a tutorial for building a phishing website using Node.js, JavaScript, HTML, and CSS. The tutorial guides users through the process of setting up the website, implementing front-end designs, and handling back-end processes.</p>
-                        <a href="https://github.com/lyfe691/Phishing-Website-Tutorial" target="_blank">View Project</a>
-                    </div>
-                </div>
-                <!-- End Project: Phishing Website Tutorial -->
+                <!-- End Project 3 -->                
+ 
+                <!-- More Projects (Initially Hidden) -->
+                <div id="more-projects" class="more-projects">
 
-                <!-- Project: OverTheWire Bandit Walkthrough -->
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/dalle_overthewire.webp" height="300px" width="300px" alt="overthewire-image">
+                    <!-- Project 4: Virtual Machine Detector -->
+                    <div class="project shadow-large">
+                        <div class="project-image">
+                            <img src="images/vm_detector.webp" height="300px" width="300px" alt="lyfeAI-image">
+                        </div>
+                        <div class="project-info">
+                            <h3>Virtual Machine Detector 🔎</h3>
+                            <p>A simple and effective VM Detector made with Java, using object-oriented design. This tool quickly identifies virtual machines across various environments. It's easy to use and perfect for anyone who needs a straightforward way to detect VM's.</p>
+                            <a href="https://github.com/lyfe691/Virtual-Machine-Detector" target="_blank">View Project</a>
+                        </div>
                     </div>
-                    <div class="project-info">
-                        <h3>OverTheWire Bandit | Walkthrough/Guide 🔐</h3>
-                        <p>This project is a comprehensive walkthrough and guide for the <a href="https://overthewire.org/wargames/" class="no-underline" target="_blank">OverTheWire</a> Bandit wargame. It helps users navigate through each level, providing step-by-step solutions and explanations to enhance their understanding of Linux command line and security concepts.</p>
-                        <a href="https://github.com/lyfe691/OverTheWire-bandit" target="_blank">View Project</a>
-                    </div>
-                </div>
-                <!-- End Project: OverTheWire Bandit Walkthrough -->
+                    <!-- End Project 4-->
 
+                    <!-- Project 5: Phishing Website Tutorial -->
+                    <div class="project shadow-large">
+                        <div class="project-image">
+                            <img src="images/dalle_created.webp" height="300px" width="300px" alt="phishing-image">
+                        </div>
+                        <div class="project-info">
+                            <h3>Phishing Website Tutorial 🕵 </h3>
+                            <p>In this project, I created a tutorial for building a phishing website using Node.js, JavaScript, HTML, and CSS. The tutorial guides users through the process of setting up the website, implementing front-end designs, and handling back-end processes.</p>
+                            <a href="https://github.com/lyfe691/Phishing-Website-Tutorial" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <!-- End Project 5 -->
+
+                    <!-- Project 6: OverTheWire Bandit Walkthrough -->
+                    <div class="project shadow-large">
+                        <div class="project-image">
+                            <img src="images/dalle_overthewire.webp" height="300px" width="300px" alt="overthewire-image">
+                        </div>
+                        <div class="project-info">
+                            <h3>OverTheWire Bandit | Walkthrough/Guide 🔐</h3>
+                            <p>This project is a comprehensive walkthrough and guide for the <a href="https://overthewire.org/wargames/" class="no-underline" target="_blank">OverTheWire</a> Bandit wargame. It helps users navigate through each level, providing step-by-step solutions and explanations to enhance their understanding of Linux command line and security concepts.</p>
+                            <a href="https://github.com/lyfe691/OverTheWire-bandit" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <!-- End Project 6 -->
+                </div>
+                <!-- End More Projects -->
+
+                <!-- View More -->
+                <div id="view-more-container" class="text-center">
+                    <button id="view-more-button" class="view-more-button">
+                        <span id="view-more-text">View More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-down">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <!--End view more-->
             </div>
+            <!--End row-->
         </div>
+        <!--end container-->
     </div>
-    
     <!-- End Projects -->
 
     <!-- Skills Section -->
     <div id="skills">
         <h2 class="heading">Skills</h2>
-        <ul>
-            <li>HTML5</li>
-            <li>CSS</li>                 
-            <li>Java</li> 
-            <li>Bash</li>
-            <li>MySQL</li>
-            <li>Linux Server</li> 
-            <li>Windows Server</li>
-        </ul>
+        <div class="skills-container">
+            <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <span>HTML5</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>CSS</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-java"></i>
+                <span>Java</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-terminal"></i>
+                <span>Bash</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-linux"></i>
+                <span>Linux Server</span>
+            </div>
+        </div>
     </div>
-    <!-- End #skills -->
+    <!-- End #skills 
 
     <!-- Contact Section -->
     <div id="contact">
@@ -211,7 +256,7 @@
                 <textarea name="message" placeholder="Your message" required></textarea>
                 <input type="hidden" name="fileUrl" id="fileUrl"> 
                 <div class="file-upload">
-                    <input type="file" name="attachment" id="file-input" class="file-input" accept=".pdf,.doc,.docx,.txt">
+                    <input type="file" name="attachment" id="file-input" class="file-input" accept=".">
                     <label for="file-input" class="file-label">
                         <i class="fa fa-cloud-upload"></i> Choose a file
                     </label>
@@ -253,6 +298,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="js/scripts.min.js"></script>
     <script src="js/contact-form.js"></script>
+    <script src="js/view_more.js"></script>
     
 </body>
 

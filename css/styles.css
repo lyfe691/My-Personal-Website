@@ -11,7 +11,7 @@ body.active {
 }
 
 
-/*------------------------ custom cursor ------------------------*/
+/*------------------------ custom cursor ------------------------
 
 body {
     cursor: url('../assets/icons8-cursor-19.png'), auto;
@@ -20,6 +20,7 @@ body {
 a, button,#mobile-menu-open,#mobile-menu-close, .file-label, #remove-file:hover,[role="button"], input[type="button"], input[type="submit"],button[type="submit"] .fa, #lead-down, #to-top {
     cursor: url('../assets/icons8-cursor.svg'), pointer;
 }
+*/
 
 /*------------------------ Experience Timeline Styling ------------------------*/
 
@@ -602,40 +603,111 @@ footer {
     transform: none;
 }
 
-#more-projects {
-    display: none;
+/*------------------------ View More ------------------------*/
+
+.project {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.more-projects {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.more-projects .project {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.more-projects .project.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.view-more-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    color: #495057;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+.view-more-button:hover {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+.chevron-down {
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
+.view-more-button.active .chevron-down {
+    transform: rotate(180deg);
 }
 
 /*------------------------ Skills Section Styling ------------------------*/
 
 #skills {
-    padding: 50px 15px;
+    padding: 70px 15px;
     text-align: center;
+    background-color: #f8f9fa;
 }
 
-#skills h2 {
+#projects h2 {
     color: #374054;
     margin-bottom: 50px;
 }
 
-#skills ul {
-    display: block;
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 0;
-    max-width: 800px;
 }
 
-#skills li {
-    display: inline-block;
-    margin: 7px;
-    padding: 5px 10px;
+.skill-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item i {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.skill-item span {
+    display: block;
+    font-size: 1.1em;
     color: #374054;
-    background: #e4e4ea;
-    list-style: none;
-    font-size: 1.2em;
-    border-radius: 3.75px;
+    font-weight: 500;
 }
 
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
 /*------------------------ Contact Section Styling ------------------------*/
 
 #contact {
