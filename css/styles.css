@@ -664,7 +664,7 @@ footer {
     background-color: #f8f9fa;
 }
 
-#projects h2 {
+#skills h2 {
     color: #374054;
     margin-bottom: 50px;
 }
@@ -693,7 +693,6 @@ footer {
 .skill-item i {
     font-size: 2.5em;
     margin-bottom: 10px;
-    color: #007bff;
 }
 
 .skill-item span {
@@ -702,6 +701,18 @@ footer {
     color: #374054;
     font-weight: 500;
 }
+
+.skill-item:nth-child(1) i { color: #E34F26; } /* HTML5 */
+.skill-item:nth-child(2) i { color: #1572B6; } /* CSS */
+.skill-item:nth-child(3) i { color: #007396; } /* Java */
+.skill-item:nth-child(4) i { color: #4EAA25; } /* Bash */
+.skill-item:nth-child(5) i { color: #4479A1; } /* MySQL */
+.skill-item:nth-child(6) i { color: #DC382D; } /* Redis */
+.skill-item:nth-child(7) i { color: #47A248; } /* MongoDB */
+.skill-item:nth-child(8) i { color: #4DB33D; } /* NoSQL */
+.skill-item:nth-child(9) i { color: #FCC624; } /* Linux Server */
+.skill-item:nth-child(10) i { color: #0078D6; } /* Windows Server */
+.skill-item:nth-child(11) i { color: #F05032; } /* Git */
 
 @media (max-width: 768px) {
     .skills-container {
