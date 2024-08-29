@@ -1,114 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@400;700&display=swap');
-
-:root {
-    --primary-color: #ff3131;
-    --secondary-color: #2196f3;
-    --background-color: #111111;
-}
-
-* {
+  <meta charset="UTF-8">
+  <title>404</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--background-color);
-    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    color: #fff;
-}
-
-.container {
-    text-align: center;
-    padding: 20px;
-}
-
-.error-text {
-    font-size: clamp(60px, 15vw, 120px);
-    font-family: 'Monoton', cursive;
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 20px;
-}
-
-#error {
-    color: var(--secondary-color);
-    text-shadow: 0 0 20px var(--secondary-color);
-    animation: glow 1.5s ease-in-out infinite alternate;
-}
-
-#code {
-    color: var(--primary-color);
-    text-shadow: 0 0 20px var(--primary-color);
-    animation: glow 1.5s ease-in-out infinite alternate 0.5s;
-}
-
-.home-link {
-    text-decoration: none;
-    color: white;
+    height: 100vh;
     font-size: 18px;
-    position: relative;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 20px;
-    padding: 5px 0;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    font-family: "vazir", sans-serif;
+    background: #171f37;
+    color: rgba(255, 255, 255, 0.8);
+    overflow: hidden !important;
 }
 
-.home-link::after {
-    content: '';
-    position: absolute;
+a {
+    text-decoration: none;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+main {
+    width: 80%;
+    height: 60%;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.Menubar {
     width: 100%;
-    height: 2px;
-    bottom: 0;
+    background-color: #313335;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1.2rem 1.2rem 0 0;
+    padding: .1rem .6rem;
+    user-select: none;
+    font-weight: 500;
+}
+
+.title_404 {
+    font-weight: 800;
+}
+
+.Menu_BTN {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Menu_BTN a {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 .2rem;
+}
+
+.Menu_BTN a:nth-child(3) {
+    background-color: #fa615c;
+}
+
+.Menu_BTN a:nth-child(2) {
+    background-color: #ffbd48;
+}
+
+.Menu_BTN a:nth-child(1) {
+    background-color: #3fc950;
+}
+
+.Terminal_body {
+    background-color: #2B2B2B;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 1.2rem 1.2rem;
+    padding: 1.2rem;
+    font-family: "Anonymous Pro", monospace;
+    overflow-y: auto;
+}
+
+.Terminal_body::-webkit-scrollbar {
+    background-color: #2B2B2B;
+}
+
+.Terminal_body::-webkit-scrollbar-thumb {
+    background-color: #5C5C5C;
+}
+
+.arrow {
+    color: #ffc720;
+    margin: 0 0 0 .8rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.keyboard {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.out_code {
+    margin: .5rem 0;
+}
+
+.red {
+    color: #fa615c;
+}
+
+.green {
+    color: #3fc950;
+}
+#userInput::after{
+    content: '';
+    width: 5px;
+    height: 15px;
+    position: relative;
+    display: inline-block;
+    background: white;
+    -webkit-animation: cursor 1s linear infinite;
+    -o-animation: cursor 1s linear infinite;
+    animation: cursor 1s linear infinite;
+}
+@keyframes cursor {
+    0%,100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+}
+/*max style*/
+.max main {
+    width: 100%;
+    height: 100%;
+}
+
+.max .Menubar, .max .Terminal_body {
+    border-radius: 0;
+}
+
+/*min style*/
+.min_app {
+    visibility: hidden;
+    position: absolute;
+    width: 50px;
+    height: 50px;
     left: 0;
-    background-color: var(--secondary-color);
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
-    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+    bottom: 0;
+    background: #3C3F41;
+    border-radius: 50%;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.home-link:hover {
-    color: var(--secondary-color);
-    text-shadow: 0 0 10px var(--secondary-color);
+.min main {
+    transform: translate(-640px, 260px) scale(0);
 }
 
-.home-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-    box-shadow: 0 0 10px var(--secondary-color);
+.min .min_app {
+    visibility: visible;
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px currentColor, 0 0 35px currentColor, 0 0 40px currentColor, 0 0 50px currentColor, 0 0 75px currentColor;
+@media (max-width: 991px) {
+    main{
+        width: 95%;
+        height: 70%;
     }
-    to {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px currentColor, 0 0 70px currentColor, 0 0 80px currentColor, 0 0 100px currentColor, 0 0 150px currentColor;
+    .out_code{
+        margin: .2rem 0;
+    }
+    .keyboard{
+        position: relative;
+        width: 100%;
+        left: 0;
+        top: -35px;
+        height: 50px;
+    }
+    .min main {
+        transform: translate(-200px, 660px) scale(0);
     }
 }
-
-
-    </style>
+  </style>
 </head>
-<body>
-    <div class="container">
-        <p id="error" class="error-text">Error</p>
-        <p id="code" class="error-text">404</p>
-        <br>
-        <a href="https://yanissebastianzuercher.ch" class="home-link">Back to Home</a>
+<body id="body">
+  <main id="main">
+    <header class="Menubar">
+      <div><p>Terminal</p></div>
+      <div><p class="title_404">404</p></div>
+      <div class="Menu_BTN">
+        <a href="#" id="min" onclick="BTNS('min')"></a>
+        <a href="#" id="max" onclick="BTNS('max')"></a>
+        <a href="#" id="close"></a>
+      </div>
+    </header>
+    <div class="Terminal_body" id="Terminal">
+      <p>Oops! page not found</p><br>
+      <p>Enter <span class="red">home</span> to go back to reality</p>
+      <br>
+      <div class="Terminal_code">
+        <div class="Terminal_line">
+          <div class="code" id="code"></div>
+          <span class="arrow">→</span><span class="user-input" id="userInput"></span>
+          <label for="Keyboard"></label><input type="text" id="Keyboard" class="keyboard">
+        </div>
+      </div>
     </div>
+  </main>
+  <div class="min_app" id="min_app">
+    <a href="#" onclick="BTNS('re')">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40">
+        <path fill="#CFD8DC" d="M41,6H7C6.4,6,6,6.4,6,7v35h36V7C42,6.4,41.6,6,41,6z" />
+        <path fill="#263238" d="M8 13H40V40H8z" />
+        <path fill="#90A4AE" d="M13.5 8A1.5 1.5 0 1 0 13.5 11 1.5 1.5 0 1 0 13.5 8zM9.5 8A1.5 1.5 0 1 0 9.5 11 1.5 1.5 0 1 0 9.5 8z" />
+        <g>
+          <path fill="#18FFFF" d="M18.5 26.5l-3.5-2V22l6 3.4v2.1L15 31v-2.5L18.5 26.5zM23 29H33V31H23z" />
+        </g>
+      </svg>
+    </a>
+  </div>
+  <script>
+    let userInput;
+let terminalOutput;
+let Terminal;
+let Keyboard;
+
+const app = () => {
+    userInput = document.getElementById("userInput");
+    terminalOutput = document.getElementById("code");
+    Terminal = document.getElementById("Terminal");
+    Keyboard = document.getElementById("Keyboard");
+    Keyboard.focus();
+
+    if (screen.width < 991) {
+        Keyboard.addEventListener("keyup", key);
+    } else {
+        document.addEventListener('keypress', key);
+    }
+    document.addEventListener("keydown", backSpace);
+};
+
+const execute = function executeCommand(input) {
+    if (input === "home") {
+        terminalOutput.innerHTML += `<p>Redirecting you back to reality...</p>`;
+        setTimeout(() => {
+            document.location.href = "https://yanissebastianzuercher.ch";
+        }, 2000);
+    } else {
+        terminalOutput.innerHTML += `<p>The command entered is not correct</p>`;
+    }
+
+    Terminal.scrollTop = terminalOutput.scrollHeight;
+    userInput.innerHTML = "";
+    str = '';
+};
+
+let str = '';
+
+const key = function keyEvent(event) {
+    let currentKey = event.key;
+    Keyboard.focus();
+    Keyboard.innerHTML = event.target.value;
+
+    if (event.key === "Enter") {
+        execute(userInput.innerHTML);
+        event.target.value = "";
+    } else {
+        if (screen.width < 991) {
+            str = currentKey;
+        } else {
+            str += currentKey;
+        }
+        event.preventDefault();
+        userInput.innerHTML = str;
+    }
+};
+
+const backSpace = function backSpace(e) {
+    if (e.keyCode === 8) {
+        userInput.innerHTML = userInput.innerHTML.slice(0, userInput.innerHTML.length - 1);
+        str = str.slice(0, str.length - 1);
+    }
+};
+
+const BTNS = function MenuBTN(t) {
+    switch (t) {
+        case "max":
+            document.getElementById("body").classList.toggle("max");
+            break;
+        case "min":
+            if (document.getElementById("body").classList.contains("max")) {
+                document.getElementById("body").classList.add("min");
+            } else {
+                document.getElementById("body").classList.toggle("min");
+            }
+            break;
+        case "re":
+            document.getElementById("body").classList.remove("min");
+            document.getElementById("body").classList.add("max");
+            break;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", app);
+
+  </script>
 </body>
 </html>
