@@ -710,7 +710,7 @@ footer {
 .skill-item:nth-child(6) i { color: #DC382D; } /* Redis */
 .skill-item:nth-child(7) i { color: #47A248; } /* MongoDB */
 .skill-item:nth-child(8) i { color: #4DB33D; } /* NoSQL */
-.skill-item:nth-child(9) i { color: #FCC624; } /* Linux Server */
+.skill-item:nth-child(9) i { color: #1f1d1d; } /* Linux Server */
 .skill-item:nth-child(10) i { color: #0078D6; } /* Windows Server */
 .skill-item:nth-child(11) i { color: #F05032; } /* Git */
 
