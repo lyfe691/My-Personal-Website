@@ -925,6 +925,48 @@ footer {
     background-color: #dc3545;
 }
 
+/*------------------------ Cursor & trail styling ------------------------*/
+.cursor {
+    background-color: whitesmoke;
+    width: 24px;
+    height: 24px;
+    transform-origin: center;
+    top: 0;
+    left: 0;
+    position: absolute;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    will-change: transform;
+    transition: transform linear .125s, opacity .125s ease-in .125s;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.cursor-trail {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #FF674D;
+    top: 0;
+    left: 0;
+    position: absolute;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    will-change: transform;
+    transition: transform linear .125s, opacity .125s ease-in .125s;
+    opacity: 0;
+    z-index: 9999;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .cursor,
+    .cursor-trail {
+        display: none;
+    }
+}
+
+
 /*------------------------ Media Queries ------------------------*/
 
 @media only screen and (max-width: 768px) {
