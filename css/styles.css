@@ -713,6 +713,7 @@ footer {
 .skill-item:nth-child(9) i { color: #1f1d1d; } /* Linux Server */
 .skill-item:nth-child(10) i { color: #0078D6; } /* Windows Server */
 .skill-item:nth-child(11) i { color: #F05032; } /* Git */
+.skill-item:nth-child(12) i {} /* GitHub */
 
 @media (max-width: 768px) {
     .skills-container {
