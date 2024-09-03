@@ -603,6 +603,20 @@ footer {
     transform: none;
 }
 
+/*------------------------ AI Assistance Styling ------------------------*/
+.fa-info-circle {
+    font-size: 0.84em; 
+    color: #4CAF50; 
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+.fa-info-circle:hover {
+    color: #388E3C; 
+    text-decoration: none;
+    cursor: help;
+}
 /*------------------------ View More ------------------------*/
 
 .project {
