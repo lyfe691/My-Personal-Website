@@ -617,6 +617,57 @@ footer {
     text-decoration: none;
     cursor: help;
 }
+
+#mdai:hover {
+   cursor: help;
+}
+/*------------------------ Custom Popup Styling ------------------------*/
+.custom-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.close-popup {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#popup-message {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
 /*------------------------ View More ------------------------*/
 
 .project {
@@ -1320,7 +1371,20 @@ body.dark-mode .btn-dark-mode:hover {
     background-color: #ff79b0;
     transform: translateY(-2px);
 }
+body.dark-mode .popup-content {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
 
+body.dark-mode .close-popup {
+    color: #ddd;
+}
+
+body.dark-mode .close-popup:hover,
+body.dark-mode .close-popup:focus {
+    color: #fff;
+}
 
 /*------------------------ Cursor & trail styling ------------------------*/
 
