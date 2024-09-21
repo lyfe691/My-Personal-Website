@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function setTheme(theme) {
         if (theme === 'dark') {
             document.body.classList.add('dark-mode');
-            toggleSwitch.innerHTML = '☀'; 
+            toggleSwitch.innerHTML = '☀️'; 
         } else {
             document.body.classList.remove('dark-mode');
-            toggleSwitch.innerHTML = '☽'; 
+            toggleSwitch.innerHTML = '🌙'; 
         }
         localStorage.setItem('theme', theme);
     }
