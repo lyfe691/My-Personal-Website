@@ -5,12 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function setTheme(theme) {
         if (theme === 'dark') {
             document.body.classList.add('dark-mode');
-            toggleSwitch.innerHTML = 'Light Mode'; 
+            toggleSwitch.innerHTML = '<div class="feather-sun"><i data-feather="sun"></i></div>'; 
         } else {
             document.body.classList.remove('dark-mode');
-            toggleSwitch.innerHTML = 'Dark Mode'; 
+            toggleSwitch.innerHTML = '<div class="feather-moon"><i data-feather="moon"></i></div>'; 
         }
         localStorage.setItem('theme', theme);
+        feather.replace(); // replace the feather icons
     }
 
     setTheme(currentTheme);
