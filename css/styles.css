@@ -14,11 +14,11 @@ body.active {
 /*------------------------ custom cursor ------------------------
 
 body {
-    cursor: url('../assets/icons8-cursor-19.png'), auto;
+    cursor: url('../assets/blackcurs.png'), auto;
 }
 
 a, button,#mobile-menu-open,#mobile-menu-close, .file-label, #remove-file:hover,[role="button"], input[type="button"], input[type="submit"],button[type="submit"] .fa, #lead-down, #to-top {
-    cursor: url('../assets/icons8-cursor.svg'), pointer;
+    cursor: url('../assets/blackpointer.svg'), pointer;
 }
 */
 
@@ -266,7 +266,7 @@ footer {
     height: 100vh;
     min-height: 600px;
     max-height: 1080px;
-    background: url(../images/picture-01-4.webp) no-repeat center center;
+    background: url(../images/leadimage_leaf.jpg) no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
