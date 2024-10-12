@@ -1538,20 +1538,16 @@ a:hover::after {
 
 /*------------------------ Specific Link Stylings ------------------------*/
 
-ul li a {
-    text-decoration: none !important;
-}
-
-ul li a::after {
-    content: none;
-}
-
 .project-info a {
     color: #718f79;
 }
 
 .project-info a::after {
     background-color: #718f7989;
+}
+
+body.dark-mode .project-info a::after {
+    background-color: #1ed4e889;
 }
 
 .project-info a:hover {
