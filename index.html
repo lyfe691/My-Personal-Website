@@ -77,27 +77,11 @@
 
 
 <body>
-    <!-- Mobile Menu Toggle -->
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </div>
-    <!-- End #mobile-menu-toggle -->
-    
-    <!-- Header Section -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </header>
-    <!-- End header -->
-    
+
+    <!-- Nav and hamburger shadow root -->
+    <nav-bar logo-url="#"></nav-bar>
+
+
     <!-- Lead Section -->
     <div id="lead">
         <div id="lead-content">
@@ -160,7 +144,7 @@
                     </div>
                     <div class="project-info">
                         <h3>Website Code Extractor 📤</h3>
-                        <p>A simple Chrome extension that extracts HTML, CSS, JavaScript, and images from websites and packages them into a zip file with JSzip. Ideal for smaller sites, it allows quick access to web code, though it may struggle with larger sites that rely heavily on server-side code.</p>
+                        <p>A simple Chrome extension that extracts HTML, CSS, JavaScript, and images from websites and packages them into a zip file with JSzip. Ideal for smaller sites, it allows quick access to web code, though it may struggle with larger sites that rely heavily on server-side code. 100+ users!</p>
                         <a href="https://chromewebstore.google.com/detail/website-code-extractor/foppgeakfpkdghmmmflmblcidoofpohm" target="_blank">Get Extension</a>
                         <a href="#" class="no-underline" id="mdai" onclick="mdai(); return false;"><i class="fas fa-info-circle" title="This project was completed with AI assistance"></i></a>
                     </div>
@@ -449,6 +433,7 @@
     <script src="js/view_more.js"></script>
     <script src="js/cursor.js"></script>
     <script src="js/dark-mode.js"></script>
+    <script src="js/nav.js"></script>   
     <script src="js/mdai.js"></script>
     <script src="js/skills.js"></script>
 </body>

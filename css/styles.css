@@ -2,7 +2,6 @@
 body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body.active {
@@ -55,113 +54,6 @@ a, button,#mobile-menu-open,#mobile-menu-close, .file-label, #remove-file:hover,
 .no-js #experience-timeline:before,
 .no-js #experience-timeline:after {
     content: none;
-}
-
-/*------------------------ Header Animation ------------------------*/
-
-@keyframes dropHeader {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/*------------------------ Header Styling ------------------------*/
-
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 10;
-    animation-name: dropHeader;
-    animation-iteration-count: 1;
-    animation-timing-function: ease;
-    animation-duration: 0.75s;
-}
-
-header ul {
-    position: sticky;
-    display: inline-block;
-    background: #fff;
-    text-align: center;
-    padding: 10px;
-    margin: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-header li {
-    display: inline-block;
-}
-
-header a {
-    display: block;
-    color: #4e7e9e;
-    padding: 10px;
-}
-
-header a:hover {
-    color: #217dbb;
-    text-decoration: none;
-    background: #eee;
-    border-radius: 4px;
-}
-
-header a:focus {
-    color: #3498db;
-    text-decoration: none;
-}
-
-header.active {
-    display: block;
-}
-
-header.sticky {
-    position: fixed;
-    z-index: 999;
-}
-
-/*------------------------ Mobile Menu Styling ------------------------*/
-
-#menu.active {
-    display: block;
-}
-
-#mobile-menu-open {
-    display: none;
-    position: fixed;
-    right: 15px;
-    top: 10px;
-    color: #fafafa;
-    font-size: 1.5em;
-    z-index: 20;
-    padding: 0 7px;
-    border-radius: 4px;
-    background: #3f3838;
-}
-
-#mobile-menu-close {
-    display: none;
-    text-align: right;
-    width: 100%;
-    background: #fff;
-    font-size: 1.5em;
-    padding-right: 15px;
-    padding-top: 10px;
-    color: #3b3b3b;
-}
-
-#mobile-menu-close span {
-    font-size: 0.5em;
-    text-transform: uppercase;
-}
-
-#mobile-menu-close i {
-    vertical-align: middle;
 }
 
 /*------------------------ Footer Styling ------------------------*/
