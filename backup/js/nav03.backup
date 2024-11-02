@@ -6,6 +6,7 @@ class NavBar extends HTMLElement {
     this.hasAnimated = false;
   }
 
+  // Keep all the same methods, just updating the render method with new styles
   connectedCallback() {
     const isDarkMode = document.body.classList.contains('dark-mode');
     this.theme = isDarkMode ? 'dark' : 'light';
@@ -43,13 +44,14 @@ class NavBar extends HTMLElement {
         :host {
           --nav-primary: ${theme === 'dark' ? '#7C3AED' : '#6D28D9'};
           --nav-primary-hover: ${theme === 'dark' ? '#8B5CF6' : '#7C3AED'};
-          --nav-text: ${theme === 'dark' ? '#E5E7EB' : '#58487a'};
-          --nav-bg: ${theme === 'dark' ? 'rgba(17, 24, 39, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
+          --nav-text: ${theme === 'dark' ? '#E5E7EB' : '#1F2937'};
+          --nav-bg: ${theme === 'dark' ? 'rgba(17, 24, 39, 0.75)' : 'rgba(255, 255, 255, 0.75)'};
           --nav-hover-text: ${theme === 'dark' ? '#FFFFFF' : '#000000'};
           --nav-hover-bg: ${theme === 'dark' ? 'rgba(124, 58, 237, 0.1)' : 'rgba(109, 40, 217, 0.1)'};
           --nav-shadow: ${theme === 'dark' 
             ? '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1)' 
             : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05)'};
+          --nav-blur: 12px;
           --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           
           display: block;
@@ -74,11 +76,25 @@ class NavBar extends HTMLElement {
 
         .nav-container {
           background: var(--nav-bg);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(var(--nav-blur));
+          -webkit-backdrop-filter: blur(var(--nav-blur));
           box-shadow: var(--nav-shadow);
           transition: var(--nav-transition);
           border-bottom: 1px solid ${theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+          position: relative;
+        }
+
+        /* Add an additional blur layer for consistency */
+        .nav-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          backdrop-filter: blur(var(--nav-blur));
+          -webkit-backdrop-filter: blur(var(--nav-blur));
+          z-index: -1;
         }
 
         .nav-container.animate {
@@ -92,6 +108,8 @@ class NavBar extends HTMLElement {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0.75rem 2rem;
+          position: relative;
+          z-index: 1;
         }
 
         .nav-logo {
@@ -216,6 +234,10 @@ class NavBar extends HTMLElement {
             border-bottom: none;
           }
 
+          .nav-container::before {
+            display: none;
+          }
+
           .nav-content {
             opacity: 1;
             pointer-events: auto;
@@ -250,6 +272,8 @@ class NavBar extends HTMLElement {
             width: 100vw;
             flex-direction: column;
             background: var(--nav-bg);
+            backdrop-filter: blur(var(--nav-blur));
+            -webkit-backdrop-filter: blur(var(--nav-blur));
             align-items: center;
             justify-content: center;
             opacity: 0;
@@ -269,6 +293,7 @@ class NavBar extends HTMLElement {
             margin: 1rem 0;
             padding: 1rem 2rem;
             width: 100%;
+            text-align: center;
           }
 
           .nav-link::after {
@@ -290,6 +315,7 @@ class NavBar extends HTMLElement {
       </style>
     `;
 
+    // Rest of the render method remains the same
     const template = `
       ${styles}
       <div class="nav-container">
@@ -337,6 +363,7 @@ class NavBar extends HTMLElement {
     }
   }
 
+  // Keep all other methods exactly the same
   replaceFeatherIcons() {
     const icons = this.shadowRoot.querySelectorAll('i[data-feather]');
     icons.forEach((icon) => {

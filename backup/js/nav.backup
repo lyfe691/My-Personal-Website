@@ -2,11 +2,12 @@ class NavBar extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.theme = 'dark';
-    this.hasAnimated = false;
+    this.theme = 'dark'; // Default theme
+    this.hasAnimated = false; 
   }
 
   connectedCallback() {
+    // Set initial theme based on the body class
     const isDarkMode = document.body.classList.contains('dark-mode');
     this.theme = isDarkMode ? 'dark' : 'light';
     this.render();
@@ -16,6 +17,8 @@ class NavBar extends HTMLElement {
 
   setupThemeObserver() {
     const body = document.body;
+
+    // observe changes
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
@@ -23,12 +26,14 @@ class NavBar extends HTMLElement {
           const newTheme = isDarkMode ? 'dark' : 'light';
           if (newTheme !== this.theme) {
             this.theme = newTheme;
-            this.render();
+            this.render(); // re-render
           }
         }
       }
     });
     observer.observe(body, { attributes: true });
+
+    // Set initial theme
     const isDarkMode = body.classList.contains('dark-mode');
     this.theme = isDarkMode ? 'dark' : 'light';
   }
@@ -39,32 +44,30 @@ class NavBar extends HTMLElement {
 
     const styles = `
       <style>
-        /* Enhanced Variables */
+        /* Variables */
         :host {
-          --nav-primary: ${theme === 'dark' ? '#7C3AED' : '#6D28D9'};
-          --nav-primary-hover: ${theme === 'dark' ? '#8B5CF6' : '#7C3AED'};
-          --nav-text: ${theme === 'dark' ? '#E5E7EB' : '#58487a'};
-          --nav-bg: ${theme === 'dark' ? 'rgba(17, 24, 39, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
-          --nav-hover-text: ${theme === 'dark' ? '#FFFFFF' : '#000000'};
-          --nav-hover-bg: ${theme === 'dark' ? 'rgba(124, 58, 237, 0.1)' : 'rgba(109, 40, 217, 0.1)'};
-          --nav-shadow: ${theme === 'dark' 
-            ? '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1)' 
-            : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05)'};
-          --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          
+          --nav-primary: ${theme === 'dark' ? '#61dafb' : '#3498db'};
+          --nav-text: ${theme === 'dark' ? '#ffffff' : '#333333'};
+          --nav-bg: ${theme === 'dark' ? 'rgba(28, 30, 34, 0.6)' : 'rgba(255, 255, 255, 0.6)'};
+          --nav-hover-text: ${theme === 'dark' ? '#ffffff' : '#000000'};
+          --nav-shadow: 0 4px 20px ${theme === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.1)'};
+          --nav-hover-bg: ${theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+          --nav-transition: all 0.4s ease-in-out;
+
           display: block;
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           z-index: 1000;
-          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          font-family: 'Poppins', sans-serif;
         }
 
+        /* Keyframes for dropNav animation */
         @keyframes dropNav {
           0% {
             opacity: 0;
-            transform: translateY(-20px);
+            transform: translateY(-50px);
           }
           100% {
             opacity: 1;
@@ -72,28 +75,32 @@ class NavBar extends HTMLElement {
           }
         }
 
+        /* Container */
         .nav-container {
           background: var(--nav-bg);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
           box-shadow: var(--nav-shadow);
           transition: var(--nav-transition);
-          border-bottom: 1px solid ${theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
+          opacity: 1; /* Ensure opacity is set */
         }
 
+        /* Apply the animation only when .animate class is present */
         .nav-container.animate {
-          animation: dropNav 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          animation: dropNav 0.8s ease-out forwards;
         }
 
+        /* Content */
         .nav-content {
           display: flex;
           justify-content: space-between;
           align-items: center;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0.75rem 2rem;
+          padding: 1rem 2rem;
         }
 
+        /* Logo */
         .nav-logo {
           display: flex;
           align-items: center;
@@ -101,60 +108,38 @@ class NavBar extends HTMLElement {
         }
 
         .nav-logo img {
-          width: 38px;
-          height: 38px;
-          border-radius: 10px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
           object-fit: cover;
-          transition: var(--nav-transition);
         }
 
-        .nav-logo:hover img {
-          transform: scale(1.05);
-        }
-
+        /* Links */
         .nav-links {
           display: flex;
           list-style: none;
           margin: 0;
           padding: 0;
-          gap: 1.5rem;
+          gap: 2rem;
           flex-direction: row;
         }
 
         .nav-link {
           color: var(--nav-text);
           text-decoration: none;
-          padding: 0.5rem 1rem;
+          padding: 0.5rem 1.5rem;
           transition: var(--nav-transition);
           border-radius: 8px;
           text-align: center;
-          font-size: 0.95rem;
-          font-weight: 500;
-          letter-spacing: 0.01em;
-          position: relative;
         }
 
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: var(--nav-primary);
-          transition: var(--nav-transition);
-          transform: translateX(-50%);
-        }
-
-        .nav-link:hover {
-          color: var(--nav-primary);
+        .nav-link:hover,
+        .nav-link:focus {
           background: var(--nav-hover-bg);
+          color: var(--nav-primary);
         }
 
-        .nav-link:hover::after {
-          width: 30px;
-        }
-
+        /* Dark Mode Toggle */
         .dark-mode-toggle {
           background: none;
           border: none;
@@ -165,23 +150,19 @@ class NavBar extends HTMLElement {
           color: var(--nav-text);
           font-size: 1.5rem;
           transition: var(--nav-transition);
-          border-radius: 8px;
         }
 
         .dark-mode-toggle:hover {
           color: var(--nav-primary);
-          background: var(--nav-hover-bg);
-          transform: rotate(10deg);
         }
 
+        /* Feather icons styling */
         .feather {
-          width: 22px;
-          height: 22px;
-          stroke-width: 2;
-          transition: var(--nav-transition);
+          width: 24px;
+          height: 24px;
         }
 
-        /* Nav Toggle - Hidden by default for desktop */
+        /* Toggle Button */
         .nav-toggle {
           display: none;
           background: none;
@@ -197,10 +178,9 @@ class NavBar extends HTMLElement {
           display: block;
           width: 25px;
           height: 3px;
-          background: var(--nav-text);
+          background: #63648f;
           margin: 5px 0;
           transition: var(--nav-transition);
-          opacity: 0;
         }
 
         /* Mobile Styles */
@@ -211,9 +191,8 @@ class NavBar extends HTMLElement {
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
             transform: none !important;
-            animation: none;
-            opacity: 1;
-            border-bottom: none;
+            animation: none; /* Disable animation on mobile */
+            opacity: 1; /* Ensure opacity is set */
           }
 
           .nav-content {
@@ -221,24 +200,23 @@ class NavBar extends HTMLElement {
             pointer-events: auto;
           }
 
+          /* Hide the dark mode toggle on mobile */
           .dark-mode-toggle {
             display: none;
           }
 
+          /* Hide the logo on mobile */
           .nav-logo {
             display: none;
           }
 
+          /* Show the hamburger menu */
           .nav-toggle {
             display: block;
             position: fixed;
             top: 1rem;
             right: 1.5rem;
             z-index: 1002;
-          }
-
-          .nav-toggle span {
-            opacity: 1;
           }
 
           .nav-links {
@@ -269,10 +247,6 @@ class NavBar extends HTMLElement {
             margin: 1rem 0;
             padding: 1rem 2rem;
             width: 100%;
-          }
-
-          .nav-link::after {
-            display: none;
           }
 
           .nav-toggle.active span:nth-child(1) {
@@ -318,19 +292,30 @@ class NavBar extends HTMLElement {
       </div>
     `;
 
+    // Save a reference to the current scroll position
     const scrollPosition = window.scrollY;
+
+    // Re-render the shadow DOM
     this.shadowRoot.innerHTML = template;
+
+    // Restore the scroll position after re-rendering
     window.scrollTo(0, scrollPosition);
+
+    // Replace feather icons in the shadow DOM
     this.replaceFeatherIcons();
+
+    // Setup event listeners after rendering
     this.setupEventListeners();
 
+    // Add the 'animate' class on initial load if at top of page
     const navContainer = this.shadowRoot.querySelector('.nav-container');
     const screenWidth = window.innerWidth;
 
     if (!this.hasAnimated && screenWidth > 768 && window.scrollY === 0) {
       navContainer.classList.add('animate');
-      this.hasAnimated = true;
+      this.hasAnimated = true; // Set the flag to true after animation
 
+      // Remove the 'animate' class after the animation ends
       navContainer.addEventListener('animationend', () => {
         navContainer.classList.remove('animate');
       });
@@ -338,6 +323,7 @@ class NavBar extends HTMLElement {
   }
 
   replaceFeatherIcons() {
+    // Clone the feather icons into the shadow DOM
     const icons = this.shadowRoot.querySelectorAll('i[data-feather]');
     icons.forEach((icon) => {
       const featherIcon = feather.icons[icon.getAttribute('data-feather')];
@@ -352,6 +338,7 @@ class NavBar extends HTMLElement {
     const navLinks = this.shadowRoot.querySelector('.nav-links');
     const darkModeToggle = this.shadowRoot.querySelector('.dark-mode-toggle');
 
+    // Toggle navigation on button click
     navToggle.addEventListener('click', () => {
       const isActive = navToggle.classList.contains('active');
       navToggle.setAttribute('aria-expanded', !isActive);
@@ -359,6 +346,7 @@ class NavBar extends HTMLElement {
       navLinks.classList.toggle('active');
     });
 
+    // Smooth scroll and close menu on link click
     this.shadowRoot.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -373,6 +361,7 @@ class NavBar extends HTMLElement {
       });
     });
 
+    // Close navigation when clicking outside
     document.addEventListener('click', (e) => {
       if (!this.contains(e.target) && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
@@ -381,6 +370,7 @@ class NavBar extends HTMLElement {
       }
     });
 
+    // Close navigation on Escape key press
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
@@ -390,6 +380,7 @@ class NavBar extends HTMLElement {
       }
     });
 
+    // Dark mode toggle
     darkModeToggle.addEventListener('click', () => {
       const isDarkMode = document.body.classList.contains('dark-mode');
       const newTheme = isDarkMode ? 'light' : 'dark';
@@ -403,7 +394,8 @@ class NavBar extends HTMLElement {
     } else {
       document.body.classList.remove('dark-mode');
     }
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('theme', theme); // Update localStorage
+    // Update the icon
     this.render();
   }
 
