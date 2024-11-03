@@ -690,17 +690,17 @@ footer {
 }
 
 .skill-item:nth-child(1) i { color: #E34F26; } /* HTML5 */
-.skill-item:nth-child(2) i { color: #1572B6; } /* CSS */
+.skill-item:nth-child(2) i { color: #1572B6; } /* CSS3 */
 .skill-item:nth-child(3) i { color: #007396; } /* Java */
 .skill-item:nth-child(4) i { color: #4EAA25; } /* Bash */
 .skill-item:nth-child(5) i { color: #4479A1; } /* MySQL */
 .skill-item:nth-child(6) i { color: #DC382D; } /* Redis */
 .skill-item:nth-child(7) i { color: #47A248; } /* MongoDB */
-.skill-item:nth-child(8) i { color: #4DB33D; } /* NoSQL */
-.skill-item:nth-child(9) i { color: #1f1d1d; } /* Linux Server */
-.skill-item:nth-child(10) i { color: #0078D6; } /* Windows Server */
-.skill-item:nth-child(11) i { color: #F05032; } /* Git */
-.skill-item:nth-child(12) i {} /* GitHub */
+.skill-item:nth-child(8) i { color: #030303; } /* Linux Server */
+.skill-item:nth-child(9) i { color: #0078D6; } /* Windows Server */
+.skill-item:nth-child(10) i { color: #F05032; } /* Git */
+.skill-item:nth-child(11) i { color: #181717; } /* GitHub */
+.skill-item:nth-child(12) i { color: #0078D6} /* C++ */
 
 
 /*------------------------ Contact Section Styling ------------------------*/
