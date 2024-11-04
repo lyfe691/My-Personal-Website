@@ -2,215 +2,268 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
     <title>404 - Page Not Found</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
-        :root {
-            --primary-color: #8e44ad;
-            --secondary-color: #9b59b6;
-            --accent-color: #bdc3c7;
-            --background-color: #2d3436;
-            --text-color: #dfe6e9;
-            --arrow-color: #ffffff;
-        }
-
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        :root {
+            --background-color: #0a0a0a;
+            --text-color: #ffffff;
+            --button-bg: #141414;
+            --button-hover: #1e1e1e;
+            --font-family: 'Montserrat', sans-serif;
+        }
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-family);
             background-color: var(--background-color);
             color: var(--text-color);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             overflow: hidden;
-            perspective: 1000px;
+            position: relative;
+            padding-bottom: 60px;
         }
-
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
         .container {
+            position: relative;
+            z-index: 2;
             text-align: center;
             padding: 2rem;
-            z-index: 10;
+            max-width: 800px;
+            width: 90%;
         }
-
         h1 {
             font-size: 12rem;
             font-weight: 800;
-            color: var(--primary-color);
-            text-shadow: 0 0 20px var(--secondary-color);
-            animation: float 8s ease-in-out infinite, glitch 5s infinite;
-            position: relative;
-        }
-
-        p {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            animation: fadeIn 3s ease-in-out;
-        }
-
-        .btn {
-            position: relative;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 4px;
             color: var(--text-color);
-            background: var(--primary-color);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            display: inline-block;
-            z-index: 10;
+            line-height: 1;
+            transform: translateZ(0);
         }
-
-        .btn::after {
-            content: '\➜'; 
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%) translateX(10px);
+        p {
             font-size: 1.5rem;
-            color: var(--arrow-color);
-            opacity: 0;
-            transition: all 0.4s ease;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            padding-right: 60px;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: 200px;
+            height: 56px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-color);
+            background-color: var(--button-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
-
-        .btn:hover::after {
-            opacity: 1;
-            right: 15px;
-            transform: translateY(-50%) translateX(0);
+        .back-button span {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .btn:active {
-            transform: scale(0.95) translateY(-5px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #2d3436, #000000);
-            opacity: 0.8;
-        }
-
-        .stars {
+        .back-button::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            background-color: var(--button-hover);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .star {
+        .back-button:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .back-button:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .back-button:hover span {
+            transform: translateX(5px);
+        }
+        .back-button:active {
+            transform: scale(0.98);
+        }
+        .footer-text {
             position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 2;
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-5px, 5px); }
-            40% { transform: translate(-5px, -5px); }
-            60% { transform: translate(5px, 5px); }
-            80% { transform: translate(5px, -5px); }
-            100% { transform: translate(0); }
-        }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 8rem;
             }
-
             p {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+                margin-bottom: 2.5rem;
             }
-
-            .btn-container {
-                flex-direction: column;
-                align-items: center;
+            .back-button {
+                width: 180px;
+                height: 52px;
+                font-size: 1rem;
             }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 5rem;
+                margin-bottom: 1rem;
+            }
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+            .back-button {
+                width: 160px;
+                height: 48px;
+                font-size: 0.95rem;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+        }
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 4rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .back-button {
+                width: 140px;
+                height: 44px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="background" id="background"></div>
-    <div class="stars" id="stars"></div>
-    <div class="container">
-        <h1 id="glitchText">404</h1>
-        <p>Uh Oh! Looks like you're lost in space...</p>
-        <div class="btn-container">
-            <a href="https://yanissebastianzuercher.ch" class="btn" id="homeBtn"><span>Return to Earth</span></a>
-        </div>
+    <div id="particles-js"></div>
+    <div class="container" role="main">
+        <h1>404</h1>
+        <p>Oops! Looks like you're lost.</p>
+        <a href="https://yanissebastianzuercher.ch" class="back-button"><span>Back to Earth</span></a>
     </div>
-
+    <div class="footer-text">
+        &copy; 2024 Yanis Sebastian Zürcher. All rights reserved.
+    </div>
     <script>
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = `${Math.random() * 3}px`;
-            star.style.height = star.style.width;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 2}s`;
-            starsContainer.appendChild(star);
+        if (typeof particlesJS === 'undefined') {
+            console.error('Particles.js not loaded');
+        } else {
+            particlesJS('particles-js',
+            {
+                "particles": {
+                    "number": {
+                        "value": 100,
+                        "density": {
+                            "enable": true,
+                            "value_area": 1000
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.25,
+                        "anim": {
+                            "enable": false
+                        }
+                    },
+                    "size": {
+                        "value": 2,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.15,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 150,
+                            "line_linked": {
+                                "opacity": 0.3
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
         }
-
-        const background = document.getElementById('background');
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            background.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, #3d3d3d, #000000)`;
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('h1, p, .back-button');
+            elements.forEach((el, index) => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(-20px)';
+                el.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                setTimeout(() => {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }, 300 + (index * 150));
+            });
         });
     </script>
 </body>
