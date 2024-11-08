@@ -1,3 +1,4 @@
+// oldweb.js
 (function() {
     setTimeout(() => {
         const host = document.createElement('div');
@@ -71,10 +72,51 @@
                     color: #ffffff;
                 }
 
-                #close-button {
+                .close-button-wrapper {
                     position: absolute;
                     top: -12px;
                     right: -12px;
+                    width: 32px;
+                    height: 32px;
+                    z-index: 1001;
+                }
+
+                #progress-ring {
+                    transform: rotate(-90deg);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 32px;
+                    height: 32px;
+                }
+
+                #progress-ring circle {
+                    fill: none;
+                    stroke-width: 3;
+                    stroke-linecap: round;
+                }
+
+                #progress-ring .bg {
+                    stroke: rgba(139, 92, 246, 0.1);
+                }
+
+                :host-context(body.dark-mode) #progress-ring .bg {
+                    stroke: rgba(124, 58, 237, 0.2);
+                }
+
+                #progress-ring .progress {
+                    stroke: #8B5CF6;
+                    transition: stroke-dashoffset 0.1s linear;
+                }
+
+                :host-context(body.dark-mode) #progress-ring .progress {
+                    stroke: #7C3AED;
+                }
+
+                #close-button {
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
                     width: 28px;
                     height: 28px;
                     border: none;
@@ -87,7 +129,6 @@
                     align-items: center;
                     justify-content: center;
                     transition: all 0.3s ease;
-                    z-index: 1001;
                     padding: 0;
                 }
 
@@ -212,12 +253,18 @@
             </style>
             
             <div id="oldweb-popup">
-                <button id="close-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                              d="M6 18L18 6M6 6l12 12" />
+                <div class="close-button-wrapper">
+                    <svg id="progress-ring" viewBox="0 0 32 32">
+                        <circle class="bg" cx="16" cy="16" r="14"/>
+                        <circle class="progress" cx="16" cy="16" r="14"/>
                     </svg>
-                </button>
+                    <button id="close-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
                 <div class="popup-content">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -226,9 +273,9 @@
                         </svg>
                     </div>
                     <div class="text-content">
-                        <h3 class="title">View old website?</h3>
+                        <h3 class="title">View the old website?</h3>
                     </div>
-                    <button class="view-button">View Old</button>
+                    <button class="view-button">View</button>
                 </div>
             </div>
         `;
@@ -237,52 +284,78 @@
         
         const popup = shadow.getElementById('oldweb-popup');
         const closeButton = shadow.getElementById('close-button');
+        const progress = shadow.querySelector('#progress-ring .progress');
+        
         let hideTimeout;
+        let animationFrame;
         let isHovered = false;
+        let startTime;
+        let pausedProgress = 0;
+        const TOTAL_TIME = 8000; 
+
+    
+        const radius = 14;
+        const circumference = radius * 2 * Math.PI;
+        progress.style.strokeDasharray = `${circumference} ${circumference}`;
+        progress.style.strokeDashoffset = 0;
+
+        function setProgress(percent) {
+            const offset = circumference - (percent / 100) * circumference;
+            progress.style.strokeDashoffset = offset;
+        }
+
 
         setTimeout(() => {
             popup.classList.add('show');
+            startTime = Date.now();
+            updateProgress();
         }, 100);
+
+        function updateProgress() {
+            if (!isHovered) {
+                const elapsedTime = Date.now() - startTime;
+                const percentage = Math.min(((elapsedTime + pausedProgress) / TOTAL_TIME) * 100, 100);
+                setProgress(percentage);
+
+                if (percentage < 100) {
+                    animationFrame = requestAnimationFrame(updateProgress);
+                } else {
+                    forceClose();
+                }
+            }
+        }
 
         function forceClose() {
             isHovered = false;
+            cancelAnimationFrame(animationFrame);
             popup.style.animation = 'fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards';
             setTimeout(() => host.remove(), 400);
         }
-
-        const hidePopup = () => {
-            if (!isHovered) {
-                popup.style.animation = 'fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards';
-                setTimeout(() => host.remove(), 400);
-            }
-        };
-
-        const startHideTimer = () => {
-            hideTimeout = setTimeout(hidePopup, 8000);
-        };
-
+     
         popup.addEventListener('mouseenter', () => {
             isHovered = true;
-            clearTimeout(hideTimeout);
+            cancelAnimationFrame(animationFrame);
+            pausedProgress += Date.now() - startTime;
         });
 
+    
         popup.addEventListener('mouseleave', () => {
             isHovered = false;
-            startHideTimer();
+            startTime = Date.now();
+            updateProgress();
         });
 
+ 
         closeButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            clearTimeout(hideTimeout);
             forceClose();
         });
+
 
         shadow.querySelector('.view-button').addEventListener('click', () => {
             window.location.href = 'https://old.yanissebastianzuercher.ch';
         });
 
-        startHideTimer();
-
-    }, 20000);
+    }, 15000); // 15 seconds in 
 })();
