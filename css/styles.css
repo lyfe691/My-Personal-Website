@@ -700,7 +700,7 @@ footer {
 .skill-item:nth-child(9) i { color: #0078D6; } /* Windows Server */
 .skill-item:nth-child(10) i { color: #F05032; } /* Git */
 .skill-item:nth-child(11) i { color: #181717; } /* GitHub */
-.skill-item:nth-child(12) i { color: #0078D6} /* C++ */
+.skill-item:nth-child(12) i { color: rgba(197, 209, 90, 0.856)} /* js */
 
 
 /*------------------------ Contact Section Styling ------------------------*/
