@@ -1,6 +1,6 @@
 /*------------------------ General Body Styling ------------------------*/
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
 }
 
@@ -517,49 +517,50 @@ footer {
 .custom-popup {
     display: none;
     position: fixed;
+    inset: 0;
     z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
 }
 
 .popup-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8f9fa;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    position: relative;
+    width: 90%;
 }
 
 .close-popup {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    color: #6b7280;
+    font-size: 1.5rem;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-.close-popup:hover,
-.close-popup:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close-popup:hover {
+    color: #4b5563;
 }
-
-#popup-message {
-    margin-top: 10px;
-    font-size: 16px;
+body.dark-mode #popup-message {
+    color: #c7c7ca;
+    font-size: 1rem;
     line-height: 1.5;
+    text-align: center;
 }
-
-
+#popup-message {
+    color: #6b6b6b;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+}
 /*------------------------ View More ------------------------*/
 
 .project {

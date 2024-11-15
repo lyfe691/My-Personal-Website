@@ -1,18 +1,23 @@
 function mdai() {
-    const popup = document.getElementById('custom-popup');
-    const popupMessage = document.getElementById('popup-message');
-    const closePopup = document.getElementsByClassName('close-popup')[0];
+    const popup = document.createElement('div');
+    popup.className = 'custom-popup';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div id="popup-message">This project was completed with AI assistance</div>
+        </div>
+    `;
 
-    popupMessage.textContent = "This project was completed with AI assistance";
+    document.body.appendChild(popup);
+
     popup.style.display = "block";
 
-    closePopup.onclick = function() {
-        popup.style.display = "none";
-    }
+    const closePopup = () => {
+        popup.remove();
+    };
 
-    window.onclick = function(event) {
-        if (event.target == popup) {
-            popup.style.display = "none";
-        }
-    }
+    popup.querySelector('.close-popup').onclick = closePopup;
+    popup.onclick = (e) => {
+        if (e.target === popup) closePopup();
+    };
 }

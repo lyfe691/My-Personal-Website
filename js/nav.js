@@ -39,6 +39,9 @@ class NavBar extends HTMLElement {
 
     const styles = `
       <style>
+        /* Import Montserrat Font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
         /* Enhanced Variables */
         :host {
           --nav-primary: ${theme === 'dark' ? '#7C3AED' : '#6D28D9'};
@@ -58,7 +61,7 @@ class NavBar extends HTMLElement {
           left: 0;
           right: 0;
           z-index: 1000;
-          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          font-family: 'Montserrat', sans-serif; /* Updated font-family */
         }
 
         @keyframes dropNav {
