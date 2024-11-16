@@ -43,17 +43,17 @@ class NavBar extends HTMLElement {
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
         /* Enhanced Variables */
-        :host {
-          --nav-primary: ${theme === 'dark' ? '#7C3AED' : '#6D28D9'};
-          --nav-primary-hover: ${theme === 'dark' ? '#8B5CF6' : '#7C3AED'};
-          --nav-text: ${theme === 'dark' ? '#E5E7EB' : '#58487a'};
-          --nav-bg: ${theme === 'dark' ? 'rgba(17, 24, 39, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
-          --nav-hover-text: ${theme === 'dark' ? '#FFFFFF' : '#000000'};
-          --nav-hover-bg: ${theme === 'dark' ? 'rgba(124, 58, 237, 0.1)' : 'rgba(109, 40, 217, 0.1)'};
-          --nav-shadow: ${theme === 'dark' 
-            ? '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1)' 
-            : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05)'};
-          --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          :host {
+        --nav-primary: ${theme === 'dark' ? '#7C3AED' : '#6D28D9'};
+        --nav-primary-hover: ${theme === 'dark' ? '#8B5CF6' : '#7C3AED'};
+        --nav-text: ${theme === 'dark' ? '#E5E7EB' : '#58487a'};
+        --nav-bg: ${theme === 'dark' ? 'rgba(17, 24, 39, 0.85)' : 'rgba(255, 255, 255, 0.85)'};
+        --nav-hover-text: ${theme === 'dark' ? '#FFFFFF' : '#000000'};
+        --nav-hover-bg: ${theme === 'dark' ? 'rgba(124, 58, 237, 0.1)' : 'rgba(109, 40, 217, 0.1)'};
+        --nav-shadow: ${theme === 'dark' 
+          ? '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1)' 
+          : '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05)'};
+        --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           
           display: block;
           position: fixed;
@@ -200,7 +200,7 @@ class NavBar extends HTMLElement {
           display: block;
           width: 25px;
           height: 3px;
-          background: var(--nav-text);
+          background: ${theme === 'dark' ? '#E5E7EB' : '#0e1111'};  
           margin: 5px 0;
           transition: var(--nav-transition);
           opacity: 0;
