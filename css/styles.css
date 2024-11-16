@@ -458,41 +458,198 @@ footer {
     position: relative;
     max-width: 900px;
     margin: 0 auto 30px auto;
-    overflow: hidden;
-    background: #fafafa;
-    border-radius: 4px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+    display: flex;
 }
 
 .project-image {
-    float: left;
+    flex: 0 0 300px;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 .project-info {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 300px;
-    padding: 15px;
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
 }
 
-.project-info h3 {
-    font-size: 1.5em;
-    font-weight: 300;
+.project-title {
+    font-size: 1.8em;
+    font-weight: 500;
     color: #374054;
     margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
 }
 
-.project-info p {
-    color: #74808a;
-    margin: 0 0 15px 0;
-    font-size: 0.9em;
+.project-description {
+    background: #ecedef;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3498db;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.no-image .project-info {
-    position: relative;
-    margin: 0;
-    padding: 30px 15px;
-    transform: none;
+/* Dark mode adjustments */
+body.dark-mode .project-description {
+    background: #2d2d2d;
+    border-left: 4px solid #bb86fc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.project-text {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+body.dark-mode .project-text {
+    color: #e0e0e0;
+}
+
+.project-text:last-child {
+    margin-bottom: 0;
+}
+
+.project-highlight {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.highlight {
+    background-color: rgba(37, 99, 235, 0.15);
+    color: #1e40af;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.05em;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+    border: 1.5px solid rgba(37, 99, 235, 0.25);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Dark mode styles */
+body.dark-mode .highlight {
+    background-color: rgba(126, 27, 219, 0.15);
+    color: #ffffff;
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.project-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: #f0f2f5;
+    color: #374054;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e3e9;
+}
+
+.project-btn:hover {
+    background: #e4e6e9;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .project-btn {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #444;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .project-btn:hover {
+    background: #444;
+}
+
+.project-btn::after {
+    display: none;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .project {
+    background: #2a2a2a;
+}
+
+body.dark-mode .project-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode .project-description {
+    background: #2d2d2d;
+    border-left: 4px solid #bb86fc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .project-text {
+    color: #e0e0e0;
+}
+
+body.dark-mode .project-btn {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #444;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .project-btn:hover {
+    background: #444;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+    .project {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .project-image {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .project-image img {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .project-info {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 1.5em;
+    }
 }
 
 /*------------------------ AI Assistance Styling ------------------------*/
@@ -1607,37 +1764,55 @@ a .fa {
 /*------------------------ highlight ------------------------*/
 
 body.dark-mode .highlight {
-    background-color: rgba(126, 27, 219, 0.12);  
+    background-color: rgba(126, 27, 219, 0.15);  
     color: #ffffff;  
-    padding: 2px 6px;  
-    border-radius: 4px;  
-    font-weight: 500;  
-    box-shadow: 0 1px 2px rgba(126, 27, 219, 0.1);  
-    border: 1px solid rgba(126, 27, 219, 0.15);  
+    padding: 4px 12px;  
+    border-radius: 6px;  
+    font-weight: 600;  
+    box-shadow: 0 2px 4px rgba(126, 27, 219, 0.15);  
+    border: 1.5px solid rgba(126, 27, 219, 0.25);  
     transition: all 0.2s ease; 
 }
 
 body.dark-mode .highlight:hover {
-    background-color: rgba(126, 27, 219, 0.18);  
-    box-shadow: 0 2px 4px rgba(126, 27, 219, 0.15); 
+    background-color: rgba(126, 27, 219, 0.25);  
+    box-shadow: 0 3px 6px rgba(126, 27, 219, 0.25);
+    transform: translateY(-1px);
     cursor: default;
 }
 
 .highlight {
-    background-color: rgba(37, 99, 235, 0.1);  
+    background-color: rgba(37, 99, 235, 0.15);  
     color: #1e40af;  
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: 500;
-    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+    border: 1.5px solid rgba(37, 99, 235, 0.25);
     transition: all 0.2s ease;
+    display: inline-block;
+    letter-spacing: 0.5px;
 }
 
 .highlight:hover {
-    background-color: rgba(37, 99, 235, 0.15);
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+    background-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 0 3px 6px rgba(37, 99, 235, 0.2);
+    transform: translateY(-1px);
     cursor: default;
+}
+
+/* Dark mode styles */
+body.dark-mode .highlight {
+    background-color: rgba(126, 27, 219, 0.15);  
+    color: #ffffff;  
+    border: 1.5px solid rgba(126, 27, 219, 0.25);
+    box-shadow: 0 2px 4px rgba(126, 27, 219, 0.15);
+}
+
+body.dark-mode .highlight:hover {
+    background-color: rgba(126, 27, 219, 0.25);  
+    box-shadow: 0 3px 6px rgba(126, 27, 219, 0.25);
+    transform: translateY(-1px);
 }
 
 /*------------------------ Custom Scrollbar ------------------------*/
