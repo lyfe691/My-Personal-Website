@@ -354,7 +354,7 @@
 
 
         shadow.querySelector('.view-button').addEventListener('click', () => {
-            window.location.href = 'https://old.yanissebastianzuercher.ch';
+            window.location.href = 'https://old.ysz.life';
         });
 
     }, 15000); // 15 seconds in 
